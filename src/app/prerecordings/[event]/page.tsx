@@ -57,6 +57,7 @@ async function validatePage(
     });
 
   if (checkError !== undefined) throw new Error(checkError);
+  if (checkPrerecordings === undefined) notFound();
 
   const offset = perPage * (parsedPage - 1);
 
@@ -93,6 +94,7 @@ export default async function PrerecordingsPage({
   });
 
   if (error !== undefined) throw new Error(error);
+  if (prerecordings === undefined) notFound();
 
   return (
     <PrerecordingListWidget

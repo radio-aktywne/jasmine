@@ -1,6 +1,14 @@
 "use client";
 
-import { Center, Loader, Pagination, Stack, Title } from "@mantine/core";
+import {
+  Button,
+  Center,
+  Loader,
+  Pagination,
+  Stack,
+  Title,
+} from "@mantine/core";
+import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect } from "react";
 import { labels } from "../../../config/labels";
@@ -65,12 +73,17 @@ export function PrerecordingListWidget({
         ))}
       </Stack>
       <Center>
-        <Pagination
-          value={page}
-          onChange={handlePageChange}
-          total={pages}
-          withEdges
-        />
+        <Stack>
+          <Pagination
+            value={page}
+            onChange={handlePageChange}
+            total={pages}
+            withEdges
+          />
+          <Button component={Link} href={`/prerecordings/${event.id}/upload`}>
+            {labels.widgets.prerecordings.buttons.upload.label}
+          </Button>
+        </Stack>
       </Center>
     </Stack>
   );

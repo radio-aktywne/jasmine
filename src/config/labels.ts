@@ -23,6 +23,10 @@ export const labels = {
     prerecordingsEventNotFound: {
       text: "Event not found",
     },
+    uploadPrerecording: {
+      title: "Upload Prerecording • weblounge",
+      description: "weblounge",
+    },
     notFound: {
       title: "Not Found • weblounge",
       description: "weblounge",
@@ -63,8 +67,43 @@ export const labels = {
           },
         },
       },
+      buttons: {
+        upload: {
+          label: "Upload",
+        },
+      },
       empty: {
         text: "No prerecordings...",
+      },
+    },
+    uploadPrerecording: {
+      form: {
+        fields: {
+          start: {
+            label: "Start",
+            option: (start: string) => start,
+            errors: {
+              missing: "Start is required",
+            },
+          },
+          file: {
+            label: "File",
+            errors: {
+              missing: "File is required",
+            },
+          },
+        },
+        buttons: {
+          upload: {
+            label: "Upload",
+          },
+        },
+      },
+      toasts: {
+        upload: {
+          error: "Failed to upload prerecording",
+          success: (start: string) => `Prerecording ${start} uploaded`,
+        },
       },
     },
   },
