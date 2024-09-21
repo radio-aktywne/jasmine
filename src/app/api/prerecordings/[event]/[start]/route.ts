@@ -9,6 +9,13 @@ type Context = {
   params: Params;
 };
 
+function createBadRequestResponse(error?: string) {
+  return Response.json(
+    { error: error || "Invalid request." },
+    { status: 400, statusText: "Bad Request" },
+  );
+}
+
 function createGenericErrorResponse(error?: string) {
   return Response.json(
     { error: error || "Internal Server Error." },
@@ -58,5 +65,39 @@ export async function GET(request: Request, { params }: Context) {
     return new Response(data, options);
   } catch (error) {
     return createGenericErrorResponse("Downloading prerecording failed.");
+  }
+}
+
+export async function PUT(request: Request, { params }: Context) {
+  const contentType = request.headers.get("Content-Type");
+  if (contentType === null)
+    return createBadRequestResponse("Content-Type header is missing.");
+
+  try {
+    const { error, response } = await emilounge.PUT(
+      "/prerecordings/{event}/{start}",
+      {
+        params: {
+          path: { event: params.event, start: params.start },
+          header: { "Content-Type": contentType },
+        },
+        body: request.body as unknown as undefined,
+        bodySerializer: (body) => body,
+        duplex: "half",
+      },
+    );
+
+    if (error) {
+      if (response.status === 404)
+        return createNotFoundResponse("Event instance not found.");
+      if (response.status === 400) return createBadRequestResponse();
+      return createGenericErrorResponse("Uploading prerecording failed.");
+    }
+
+    const options = { status: 204, statusText: "No Content" };
+
+    return new Response(null, options);
+  } catch (error) {
+    return createGenericErrorResponse("Uploading prerecording failed.");
   }
 }
