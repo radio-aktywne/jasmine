@@ -3,10 +3,10 @@ slug: /
 title: Index
 ---
 
-# weblounge app
+# weblounge
 
-Emission prerecordings web UI 📼
+Broadcast prerecordings app 🛋️
 
 ## 💡 About
 
-`weblounge` is a web application for managing prerecorded broadcasts.
+`weblounge` is a web app for managing prerecorded broadcasts.
