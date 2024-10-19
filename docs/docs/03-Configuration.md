@@ -12,7 +12,7 @@ You can configure the app at runtime using various environment variables:
   (default: `0.0.0.0`)
 - `JASMINE__SERVER__PORT` -
   port to run the server on
-  (default: `39000`)
+  (default: `10620`)
 - `JASMINE__BEAVER__HTTP__SCHEME`
   scheme of the HTTP API of the beaver service
   (default: `http`)
@@ -21,7 +21,7 @@ You can configure the app at runtime using various environment variables:
   (default: `localhost`)
 - `JASMINE__BEAVER__HTTP__PORT`
   port of the HTTP API of the beaver service
-  (default: `35000`)
+  (default: `10500`)
 - `JASMINE__BEAVER__HTTP__PATH`
   path of the HTTP API of the beaver service
   (default: ``)
@@ -33,7 +33,7 @@ You can configure the app at runtime using various environment variables:
   (default: `localhost`)
 - `JASMINE__NUMBAT__HTTP__PORT`
   port of the HTTP API of the numbat service
-  (default: `28000`)
+  (default: `10600`)
 - `JASMINE__NUMBAT__HTTP__PATH`
   path of the HTTP API of the numbat service
   (default: ``)

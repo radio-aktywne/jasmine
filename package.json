@@ -2,8 +2,8 @@
   "name": "jasmine",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname \"${JASMINE__SERVER__HOST:-0.0.0.0}\" --port \"${JASMINE__SERVER__PORT:-39000}\"",
-    "run": "next start --hostname \"${JASMINE__SERVER__HOST:-0.0.0.0}\" --port \"${JASMINE__SERVER__PORT:-39000}\"",
+    "dev": "next dev --hostname \"${JASMINE__SERVER__HOST:-0.0.0.0}\" --port \"${JASMINE__SERVER__PORT:-10620}\"",
+    "run": "next start --hostname \"${JASMINE__SERVER__HOST:-0.0.0.0}\" --port \"${JASMINE__SERVER__PORT:-10620}\"",
     "build": "next build",
     "clean": "rm --recursive --force build/",
     "update": "ncu --peer --upgrade && npm i --no-audit --no-fund",

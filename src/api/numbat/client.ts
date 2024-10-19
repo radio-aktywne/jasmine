@@ -7,7 +7,7 @@ const scheme = process.env.JASMINE__NUMBAT__HTTP__SCHEME || "http";
 const host = process.env.JASMINE__NUMBAT__HTTP__HOST || "localhost";
 const port =
   process.env.JASMINE__NUMBAT__HTTP__PORT === undefined
-    ? 28000
+    ? 10600
     : process.env.JASMINE__NUMBAT__HTTP__PORT;
 const path = (process.env.JASMINE__NUMBAT__HTTP__PATH || "")
   // Ensure path starts with a slash
