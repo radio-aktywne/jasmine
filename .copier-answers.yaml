@@ -9,7 +9,7 @@ docsurl: https://radio-aktywne.github.io/jasmine
 envprefix: JASMINE
 imagename: apps/jasmine
 keyprefix: jasmine
-port: 39000
+port: 10620
 registry: true
 releases: true
 reponame: jasmine
