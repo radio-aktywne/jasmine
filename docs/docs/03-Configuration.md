@@ -7,33 +7,33 @@ title: Configuration
 
 You can configure the app at runtime using various environment variables:
 
-- `WEBLOUNGE__SERVER__HOST` -
+- `JASMINE__SERVER__HOST` -
   host to run the server on
   (default: `0.0.0.0`)
-- `WEBLOUNGE__SERVER__PORT` -
+- `JASMINE__SERVER__PORT` -
   port to run the server on
   (default: `39000`)
-- `WEBLOUNGE__EMILOUNGE__HTTP__SCHEME`
-  scheme of the HTTP API of the emilounge service
+- `JASMINE__BEAVER__HTTP__SCHEME`
+  scheme of the HTTP API of the beaver service
   (default: `http`)
-- `WEBLOUNGE__EMILOUNGE__HTTP__HOST`
-  host of the HTTP API of the emilounge service
+- `JASMINE__BEAVER__HTTP__HOST`
+  host of the HTTP API of the beaver service
   (default: `localhost`)
-- `WEBLOUNGE__EMILOUNGE__HTTP__PORT`
-  port of the HTTP API of the emilounge service
-  (default: `28000`)
-- `WEBLOUNGE__EMILOUNGE__HTTP__PATH`
-  path of the HTTP API of the emilounge service
-  (default: ``)
-- `WEBLOUNGE__EMISHOWS__HTTP__SCHEME`
-  scheme of the HTTP API of the emishows service
-  (default: `http`)
-- `WEBLOUNGE__EMISHOWS__HTTP__HOST`
-  host of the HTTP API of the emishows service
-  (default: `localhost`)
-- `WEBLOUNGE__EMISHOWS__HTTP__PORT`
-  port of the HTTP API of the emishows service
+- `JASMINE__BEAVER__HTTP__PORT`
+  port of the HTTP API of the beaver service
   (default: `35000`)
-- `WEBLOUNGE__EMISHOWS__HTTP__PATH`
-  path of the HTTP API of the emishows service
+- `JASMINE__BEAVER__HTTP__PATH`
+  path of the HTTP API of the beaver service
+  (default: ``)
+- `JASMINE__NUMBAT__HTTP__SCHEME`
+  scheme of the HTTP API of the numbat service
+  (default: `http`)
+- `JASMINE__NUMBAT__HTTP__HOST`
+  host of the HTTP API of the numbat service
+  (default: `localhost`)
+- `JASMINE__NUMBAT__HTTP__PORT`
+  port of the HTTP API of the numbat service
+  (default: `28000`)
+- `JASMINE__NUMBAT__HTTP__PATH`
+  path of the HTTP API of the numbat service
   (default: ``)

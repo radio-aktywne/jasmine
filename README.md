@@ -1,13 +1,13 @@
-<h1 align="center">weblounge</h1>
+<h1 align="center">jasmine</h1>
 
 <div align="center">
 
 Broadcast prerecordings app 🛋️
 
-[![Lint](https://github.com/radio-aktywne/weblounge/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/weblounge/actions/workflows/lint.yaml)
-[![Image](https://github.com/radio-aktywne/weblounge/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/weblounge/actions/workflows/image.yaml)
-[![Registry](https://github.com/radio-aktywne/weblounge/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/weblounge/actions/workflows/registry.yaml)
-[![Docs](https://github.com/radio-aktywne/weblounge/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/weblounge/actions/workflows/docs.yaml)
+[![Lint](https://github.com/radio-aktywne/jasmine/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/jasmine/actions/workflows/lint.yaml)
+[![Image](https://github.com/radio-aktywne/jasmine/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/jasmine/actions/workflows/image.yaml)
+[![Registry](https://github.com/radio-aktywne/jasmine/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/jasmine/actions/workflows/registry.yaml)
+[![Docs](https://github.com/radio-aktywne/jasmine/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/jasmine/actions/workflows/docs.yaml)
 
 </div>
 
@@ -15,14 +15,14 @@ Broadcast prerecordings app 🛋️
 
 ## 💡 About
 
-`weblounge` is a web app for managing prerecorded broadcasts.
+`jasmine` is a web app for managing prerecorded broadcasts.
 
 ## 📄 Further Reading
 
 More in-depth documentation can be found
-[here](https://radio-aktywne.github.io/weblounge).
+[here](https://radio-aktywne.github.io/jasmine).
 
 ## 💻 Development
 
 Read more about how to develop the project
-[here](https://github.com/radio-aktywne/weblounge/blob/main/CONTRIBUTING.md).
+[here](https://github.com/radio-aktywne/jasmine/blob/main/CONTRIBUTING.md).

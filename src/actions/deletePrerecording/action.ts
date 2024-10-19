@@ -1,6 +1,6 @@
 "use server";
 
-import { emilounge } from "../../api";
+import { numbat } from "../../api";
 import { DeletePrerecordingProps } from "./types";
 
 const errorMessage = "Deleting prerecording failed.";
@@ -10,7 +10,7 @@ export async function deletePrerecording({
   start,
 }: DeletePrerecordingProps) {
   try {
-    const { error, response } = await emilounge.DELETE(
+    const { error, response } = await numbat.DELETE(
       "/prerecordings/{event}/{start}",
       {
         params: {

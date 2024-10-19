@@ -1,6 +1,6 @@
 "use server";
 
-import { emishows } from "../../api";
+import { beaver } from "../../api";
 import { ListSchedulesData, ListSchedulesProps } from "./types";
 
 const errorMessage = "Listing schedules failed.";
@@ -15,7 +15,7 @@ export async function listSchedules({
   order,
 }: ListSchedulesProps = {}) {
   try {
-    const { data, error, response } = await emishows.GET("/schedule", {
+    const { data, error, response } = await beaver.GET("/schedule", {
       params: {
         query: { start, end, limit, offset, where, include, order },
       },
