@@ -1,4 +1,4 @@
-import { components } from "../../api/emilounge";
+import { components } from "../../api/numbat";
 
 export type ListPrerecordingsData = components["schemas"]["PrerecordingList"];
 

@@ -9,32 +9,32 @@ export const labels = {
   },
   pages: {
     index: {
-      title: "weblounge",
-      description: "weblounge",
+      title: "jasmine",
+      description: "jasmine",
     },
     events: {
-      title: "Events • weblounge",
-      description: "weblounge",
+      title: "Events • jasmine",
+      description: "jasmine",
     },
     prerecordings: {
-      title: "Prerecordings • weblounge",
-      description: "weblounge",
+      title: "Prerecordings • jasmine",
+      description: "jasmine",
     },
     prerecordingsEventNotFound: {
       text: "Event not found",
     },
     uploadPrerecording: {
-      title: "Upload Prerecording • weblounge",
-      description: "weblounge",
+      title: "Upload Prerecording • jasmine",
+      description: "jasmine",
     },
     notFound: {
-      title: "Not Found • weblounge",
-      description: "weblounge",
+      title: "Not Found • jasmine",
+      description: "jasmine",
       text: "Page not found",
     },
     error: {
-      title: "Error • weblounge",
-      description: "weblounge",
+      title: "Error • jasmine",
+      description: "jasmine",
       text: "Something went wrong",
       buttons: {
         retry: {

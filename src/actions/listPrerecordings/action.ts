@@ -1,6 +1,6 @@
 "use server";
 
-import { emilounge } from "../../api";
+import { numbat } from "../../api";
 import { ListPrerecordingsData, ListPrerecordingsProps } from "./types";
 
 const errorMessage = "Listing prerecordings failed.";
@@ -14,7 +14,7 @@ export async function listPrerecordings({
   order,
 }: ListPrerecordingsProps) {
   try {
-    const { data, error, response } = await emilounge.GET(
+    const { data, error, response } = await numbat.GET(
       "/prerecordings/{event}",
       {
         params: {

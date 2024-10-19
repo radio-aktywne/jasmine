@@ -1,4 +1,4 @@
-import { emilounge } from "../../../../../api";
+import { numbat } from "../../../../../api";
 
 type Params = {
   event: string;
@@ -32,7 +32,7 @@ function createNotFoundResponse(error?: string) {
 
 export async function GET(request: Request, { params }: Context) {
   try {
-    const { data, error, response } = await emilounge.GET(
+    const { data, error, response } = await numbat.GET(
       "/prerecordings/{event}/{start}",
       {
         params: {
@@ -74,7 +74,7 @@ export async function PUT(request: Request, { params }: Context) {
     return createBadRequestResponse("Content-Type header is missing.");
 
   try {
-    const { error, response } = await emilounge.PUT(
+    const { error, response } = await numbat.PUT(
       "/prerecordings/{event}/{start}",
       {
         params: {

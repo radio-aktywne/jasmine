@@ -1,2 +1,2 @@
-export { emilounge } from "./emilounge";
-export { emishows } from "./emishows";
+export { beaver } from "./beaver";
+export { numbat } from "./numbat";

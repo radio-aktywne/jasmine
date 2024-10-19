@@ -3,10 +3,10 @@ slug: /
 title: Index
 ---
 
-# weblounge
+# jasmine
 
 Broadcast prerecordings app 🛋️
 
 ## 💡 About
 
-`weblounge` is a web app for managing prerecorded broadcasts.
+`jasmine` is a web app for managing prerecorded broadcasts.

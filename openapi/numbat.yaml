@@ -1,5 +1,5 @@
 info:
-  title: emilounge app
+  title: numbat
 openapi: 3.1.0
 paths:
   /ping:

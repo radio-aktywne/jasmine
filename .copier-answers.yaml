@@ -2,15 +2,15 @@
 _commit: 0.2.0
 _src_path: gh:radio-aktywne/template-app-next
 accountname: radio-aktywne
-appname: weblounge
+appname: jasmine
 description: Broadcast prerecordings app 🛋️
 docs: true
-docsurl: https://radio-aktywne.github.io/weblounge
-envprefix: WEBLOUNGE
-imagename: apps/weblounge
-keyprefix: weblounge
+docsurl: https://radio-aktywne.github.io/jasmine
+envprefix: JASMINE
+imagename: apps/jasmine
+keyprefix: jasmine
 port: 39000
 registry: true
 releases: true
-reponame: weblounge
-repourl: https://github.com/radio-aktywne/weblounge
+reponame: jasmine
+repourl: https://github.com/radio-aktywne/jasmine
