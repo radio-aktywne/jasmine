@@ -1,103 +1,89 @@
-import { numbat } from "../../../../../api";
+import { NextRequest, NextResponse } from "next/server";
 
-type Params = {
-  event: string;
-  start: string;
-};
+import {
+  downloadPrerecording,
+  PrerecordingNotFoundError,
+} from "../../../../../lib/numbat/download-prerecording";
+import {
+  EventInstanceNotFoundError,
+  uploadPrerecording,
+} from "../../../../../lib/numbat/upload-prerecording";
+import { errors } from "./constants";
+import { RouteContext } from "./types";
 
-type Context = {
-  params: Params;
-};
-
-function createBadRequestResponse(error?: string) {
-  return Response.json(
-    { error: error || "Invalid request." },
-    { status: 400, statusText: "Bad Request" },
-  );
-}
-
-function createGenericErrorResponse(error?: string) {
-  return Response.json(
-    { error: error || "Internal Server Error." },
-    { status: 500, statusText: "Internal Server Error" },
-  );
-}
-
-function createNotFoundResponse(error?: string) {
-  return Response.json(
-    { error: error || "Prerecording not found." },
-    { status: 404, statusText: "Not Found" },
-  );
-}
-
-export async function GET(request: Request, { params }: Context) {
+export async function GET(
+  request: NextRequest,
+  context: RouteContext,
+): Promise<NextResponse> {
   try {
-    const { data, error, response } = await numbat.GET(
-      "/prerecordings/{event}/{start}",
-      {
-        params: {
-          path: { event: params.event, start: params.start },
-        },
-        parseAs: "stream",
-      },
-    );
+    const { event, start } = context.params;
 
-    if (error) {
-      if (response.status === 404) return createNotFoundResponse();
-      return createGenericErrorResponse("Downloading prerecording failed.");
-    }
+    const { data, etag, length, modified, type } = await downloadPrerecording({
+      event: event,
+      start: start,
+    });
 
-    const headers = new Headers();
-    const keepHeaders = [
-      "Content-Length",
-      "Content-Type",
-      "ETag",
-      "Last-Modified",
-    ];
+    const headers = {
+      "Content-Length": length.toString(),
+      "Content-Type": type,
+      ETag: etag,
+      "Last-Modified": modified,
+    };
 
-    for (const key of keepHeaders) {
-      const value = response.headers.get(key);
-      if (value !== null) headers.set(key, value);
-    }
-
-    const options = { status: 200, statusText: "OK", headers: headers };
-
-    return new Response(data, options);
+    return new NextResponse(data, {
+      headers: headers,
+      status: 200,
+      statusText: "OK",
+    });
   } catch (error) {
-    return createGenericErrorResponse("Downloading prerecording failed.");
+    if (error instanceof PrerecordingNotFoundError) {
+      return NextResponse.json(
+        { error: errors.download.notFound },
+        { status: 404, statusText: "Not Found" },
+      );
+    }
+
+    return NextResponse.json(
+      { error: errors.download.generic },
+      { status: 500, statusText: "Internal Server Error" },
+    );
   }
 }
 
-export async function PUT(request: Request, { params }: Context) {
-  const contentType = request.headers.get("Content-Type");
-  if (contentType === null)
-    return createBadRequestResponse("Content-Type header is missing.");
-
+export async function PUT(
+  request: NextRequest,
+  context: RouteContext,
+): Promise<NextResponse> {
   try {
-    const { error, response } = await numbat.PUT(
-      "/prerecordings/{event}/{start}",
-      {
-        params: {
-          path: { event: params.event, start: params.start },
-          header: { "Content-Type": contentType },
-        },
-        body: request.body as unknown as undefined,
-        bodySerializer: (body) => body,
-        duplex: "half",
-      },
-    );
+    const { event, start } = context.params;
 
-    if (error) {
-      if (response.status === 404)
-        return createNotFoundResponse("Event instance not found.");
-      if (response.status === 400) return createBadRequestResponse();
-      return createGenericErrorResponse("Uploading prerecording failed.");
+    const type = request.headers.get("Content-Type");
+
+    if (!type)
+      return NextResponse.json(
+        { error: errors.upload.missingContentType },
+        { status: 400, statusText: "Bad Request" },
+      );
+
+    await uploadPrerecording({
+      data: request.body!,
+      event: event,
+      start: start,
+      type: type,
+    });
+
+    return new NextResponse(null, { status: 204, statusText: "No Content" });
+  } catch (error) {
+    if (error instanceof EventInstanceNotFoundError) {
+      return NextResponse.json(
+        { error: errors.upload.notFound },
+        { status: 404, statusText: "Not Found" },
+      );
     }
 
-    const options = { status: 204, statusText: "No Content" };
-
-    return new Response(null, options);
-  } catch (error) {
-    return createGenericErrorResponse("Uploading prerecording failed.");
+    return NextResponse.json(
+      { error: errors.upload.generic },
+      { status: 500, statusText: "Internal Server Error" },
+    );
   }
 }
