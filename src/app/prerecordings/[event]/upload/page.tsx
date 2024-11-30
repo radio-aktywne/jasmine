@@ -1,26 +1,34 @@
-import { notFound } from "next/navigation";
-import { getEvent } from "../../../../actions";
-import { UploadPrerecordingWidget } from "../../../../components";
+import { i18n } from "@lingui/core";
+import { msg, t } from "@lingui/macro";
+import { Metadata } from "next";
 
-type UploadPrerecordingPageParams = Readonly<{
-  event: string;
-}>;
-
-export type UploadPrerecordingPageProps = Readonly<{
-  params: UploadPrerecordingPageParams;
-}>;
+import { UploadPrerecordingPageMetadata } from "../../../../components/metadata/prerecordings/upload-prerecording-page-metadata";
+import { UploadPrerecordingPageView } from "../../../../components/views/prerecordings/upload-prerecording-page-view";
+import { getLanguage } from "../../../../lib/i18n/get-language";
+import { loadLocale } from "../../../../lib/i18n/load-locale";
+import { UploadPrerecordingPageInput } from "./types";
 
 export const dynamic = "force-dynamic";
 
-export default async function UploadPrerecordingPage({
+export async function generateMetadata({}: UploadPrerecordingPageInput): Promise<Metadata> {
+  const { language } = getLanguage();
+  await loadLocale({ i18n, language });
+
+  return {
+    description: t(i18n)(msg({ message: "Upload prerecording • jasmine" })),
+    title: t(i18n)(msg({ message: "jasmine" })),
+  };
+}
+
+export default function UploadPrerecordingPage({
   params,
-}: UploadPrerecordingPageProps) {
-  const { data: event, error: eventError } = await getEvent({
-    id: params.event,
-  });
+}: UploadPrerecordingPageInput) {
+  const event = params.event;
 
-  if (eventError !== undefined) throw new Error(eventError);
-  if (event === undefined) notFound();
-
-  return <UploadPrerecordingWidget event={event} />;
+  return (
+    <>
+      <UploadPrerecordingPageMetadata event={event} />
+      <UploadPrerecordingPageView event={event} />
+    </>
+  );
 }

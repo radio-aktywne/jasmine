@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-11-09 16:23+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/actions/numbat/delete-prerecording/constants.ts:4
+msgid "An error occurred while deleteing prerecording."
+msgstr "An error occurred while deleteing prerecording."
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:5
+msgid "An error occurred while downloading the prerecording."
+msgstr "An error occurred while downloading the prerecording."
+
+#: src/actions/beaver/get-event/constants.ts:4
+msgid "An error occurred while fetching the event."
+msgstr "An error occurred while fetching the event."
+
+#: src/actions/beaver/list-events/constants.ts:4
+msgid "An error occurred while listing events."
+msgstr "An error occurred while listing events."
+
+#: src/actions/numbat/list-prerecordings/constants.ts:4
+msgid "An error occurred while listing prerecordings."
+msgstr "An error occurred while listing prerecordings."
+
+#: src/actions/beaver/list-schedules/constants.ts:4
+msgid "An error occurred while listing schedules."
+msgstr "An error occurred while listing schedules."
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:13
+msgid "An error occurred while uploading the prerecording."
+msgstr "An error occurred while uploading the prerecording."
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:16
+msgid "Content-Type header is missing."
+msgstr "Content-Type header is missing."
+
+#: src/hooks/use-toasts/main.tsx:19
+msgid "Error"
+msgstr "Error"
+
+#: src/components/metadata/root/root-error-metadata/main.tsx:14
+msgid "Error • jasmine"
+msgstr "Error • jasmine"
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:19
+msgid "Event instance not found."
+msgstr "Event instance not found."
+
+#: src/components/metadata/prerecordings/prerecordings-event-not-found-metadata/main.tsx:14
+msgid "Event not found • jasmine"
+msgstr "Event not found • jasmine"
+
+#: src/actions/beaver/get-event/constants.ts:6
+#: src/actions/numbat/list-prerecordings/constants.ts:6
+#: src/components/views/prerecordings/prerecordings-event-not-found-view/main.tsx:12
+msgid "Event not found."
+msgstr "Event not found."
+
+#: src/app/events/page.tsx:18
+#: src/components/metadata/events/events-page-metadata/main.tsx:14
+msgid "Events • jasmine"
+msgstr "Events • jasmine"
+
+#: src/components/widgets/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
+msgid "File"
+msgstr "File"
+
+#: src/components/widgets/upload-prerecording-widget/main.tsx:49
+msgid "File is required"
+msgstr "File is required"
+
+#: src/hooks/use-toasts/main.tsx:31
+msgid "Info"
+msgstr "Info"
+
+#: src/actions/beaver/get-event/constants.ts:5
+#: src/actions/beaver/list-events/constants.ts:5
+#: src/actions/beaver/list-schedules/constants.ts:5
+#: src/actions/numbat/delete-prerecording/constants.ts:5
+#: src/actions/numbat/list-prerecordings/constants.ts:5
+msgid "Invalid input."
+msgstr "Invalid input."
+
+#: src/app/events/page.tsx:19
+#: src/app/layout.tsx:19
+#: src/app/layout.tsx:20
+#: src/app/prerecordings/[event]/page.tsx:19
+#: src/app/prerecordings/[event]/upload/page.tsx:19
+#: src/components/metadata/events/events-page-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/prerecordings-event-not-found-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:13
+#: src/components/metadata/root/root-error-metadata/main.tsx:13
+#: src/components/metadata/root/root-not-found-metadata/main.tsx:13
+msgid "jasmine"
+msgstr "jasmine"
+
+#: src/components/widgets/event-list-widget/main.tsx:37
+msgid "No events."
+msgstr "No events."
+
+#: src/components/widgets/prerecording-list-widget/main.tsx:38
+msgid "No prerecordings."
+msgstr "No prerecordings."
+
+#: src/components/metadata/root/root-not-found-metadata/main.tsx:14
+msgid "Not Found • jasmine"
+msgstr "Not Found • jasmine"
+
+#: src/components/views/root/root-not-found-view/main.tsx:12
+msgid "Page not found"
+msgstr "Page not found"
+
+#: src/components/widgets/prerecording-list-widget/components/prerecording-tile/main.tsx:27
+msgid "Prerecording deleted."
+msgstr "Prerecording deleted."
+
+#: src/actions/numbat/delete-prerecording/constants.ts:6
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:8
+msgid "Prerecording not found."
+msgstr "Prerecording not found."
+
+#: src/components/widgets/upload-prerecording-widget/main.tsx:38
+msgid "Prerecording uploaded successfully"
+msgstr "Prerecording uploaded successfully"
+
+#: src/app/prerecordings/[event]/page.tsx:18
+#: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:14
+msgid "Prerecordings • jasmine"
+msgstr "Prerecordings • jasmine"
+
+#: src/components/views/root/root-error-view/main.tsx:22
+msgid "Retry"
+msgstr "Retry"
+
+#: src/components/views/root/root-error-view/main.tsx:15
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/components/widgets/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:56
+msgid "Start"
+msgstr "Start"
+
+#: src/components/widgets/upload-prerecording-widget/main.tsx:47
+msgid "Start is required"
+msgstr "Start is required"
+
+#: src/hooks/use-toasts/main.tsx:43
+msgid "Success"
+msgstr "Success"
+
+#: src/components/widgets/prerecording-list-widget/main.tsx:57
+#: src/components/widgets/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:66
+msgid "Upload"
+msgstr "Upload"
+
+#: src/app/prerecordings/[event]/upload/page.tsx:18
+#: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:14
+msgid "Upload prerecording • jasmine"
+msgstr "Upload prerecording • jasmine"
+
+#: src/hooks/use-toasts/main.tsx:55
+msgid "Warning"
+msgstr "Warning"

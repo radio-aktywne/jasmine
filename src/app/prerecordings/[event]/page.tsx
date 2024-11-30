@@ -1,107 +1,32 @@
-import { notFound, redirect } from "next/navigation";
-import { getEvent, listPrerecordings } from "../../../actions";
-import { PrerecordingListWidget } from "../../../components";
-import { createModifiedURLSearchParams } from "../../../utils/url";
+import { i18n } from "@lingui/core";
+import { msg, t } from "@lingui/macro";
+import { Metadata } from "next";
 
-type PrerecordingsPageParams = Readonly<{
-  event: string;
-}>;
-
-type PrerecordingsPageSearchParams = Readonly<{
-  page?: string | string[];
-}>;
-
-export type PrerecordingsPageProps = Readonly<{
-  params: PrerecordingsPageParams;
-  searchParams: PrerecordingsPageSearchParams;
-}>;
+import { PrerecordingsPageMetadata } from "../../../components/metadata/prerecordings/prerecordings-page-metadata";
+import { PrerecordingsPageView } from "../../../components/views/prerecordings/prerecordings-page-view";
+import { getLanguage } from "../../../lib/i18n/get-language";
+import { loadLocale } from "../../../lib/i18n/load-locale";
+import { PrerecordingsPageInput } from "./types";
 
 export const dynamic = "force-dynamic";
 
-const perPage = 5;
+export async function generateMetadata({}: PrerecordingsPageInput): Promise<Metadata> {
+  const { language } = getLanguage();
+  await loadLocale({ i18n, language });
 
-function redirectWithParams(event: string, params: URLSearchParams): never {
-  redirect(`/prerecordings/${event}?` + params.toString());
+  return {
+    description: t(i18n)(msg({ message: "Prerecordings • jasmine" })),
+    title: t(i18n)(msg({ message: "jasmine" })),
+  };
 }
 
-async function validatePage(
-  params: PrerecordingsPageParams,
-  searchParams: PrerecordingsPageSearchParams,
-) {
-  const page = searchParams.page;
-
-  if (page === undefined)
-    redirectWithParams(
-      params.event,
-      createModifiedURLSearchParams(searchParams, { page: "1" }),
-    );
-
-  if (Array.isArray(page))
-    redirectWithParams(
-      params.event,
-      createModifiedURLSearchParams(searchParams, { page: page[0] }),
-    );
-
-  const parsedPage = parseInt(page, 10);
-
-  if (isNaN(parsedPage) || parsedPage < 1)
-    redirectWithParams(
-      params.event,
-      createModifiedURLSearchParams(searchParams, { page: "1" }),
-    );
-
-  const { data: checkPrerecordings, error: checkError } =
-    await listPrerecordings({
-      event: params.event,
-      limit: 0,
-    });
-
-  if (checkError !== undefined) throw new Error(checkError);
-  if (checkPrerecordings === undefined) notFound();
-
-  const offset = perPage * (parsedPage - 1);
-
-  if (checkPrerecordings.count > 0 && offset >= checkPrerecordings.count)
-    redirectWithParams(
-      params.event,
-      createModifiedURLSearchParams(searchParams, {
-        page: (Math.ceil(checkPrerecordings.count / perPage) || 1).toString(),
-      }),
-    );
-
-  return parsedPage;
-}
-
-export default async function PrerecordingsPage({
-  params,
-  searchParams,
-}: PrerecordingsPageProps) {
-  const page = await validatePage(params, searchParams);
-  const limit = perPage;
-  const offset = perPage * (page - 1);
-
-  const { data: event, error: eventError } = await getEvent({
-    id: params.event,
-  });
-
-  if (eventError !== undefined) throw new Error(eventError);
-  if (event === undefined) notFound();
-
-  const { data: prerecordings, error } = await listPrerecordings({
-    event: event.id,
-    limit,
-    offset,
-  });
-
-  if (error !== undefined) throw new Error(error);
-  if (prerecordings === undefined) notFound();
+export default function PrerecordingsPage({ params }: PrerecordingsPageInput) {
+  const event = params.event;
 
   return (
-    <PrerecordingListWidget
-      event={event}
-      prerecordings={prerecordings}
-      page={page}
-      perPage={perPage}
-    />
+    <>
+      <PrerecordingsPageMetadata event={event} />
+      <PrerecordingsPageView event={event} />
+    </>
   );
 }
