@@ -28,7 +28,7 @@ export async function listPrerecordings({
     },
   });
 
-  if (error) {
+  if (error || !response.ok) {
     if (response.status === 404) throw new EventNotFoundError();
     throw new NumbatError();
   }

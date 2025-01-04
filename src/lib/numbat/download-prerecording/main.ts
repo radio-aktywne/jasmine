@@ -22,7 +22,7 @@ export async function downloadPrerecording({
     },
   );
 
-  if (error) {
+  if (error || !response.ok) {
     if (response.status === 404) throw new PrerecordingNotFoundError();
     throw new NumbatError();
   }

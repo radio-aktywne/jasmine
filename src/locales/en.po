@@ -37,11 +37,16 @@ msgstr "An error occurred while listing prerecordings."
 msgid "An error occurred while listing schedules."
 msgstr "An error occurred while listing schedules."
 
-#: src/app/api/prerecordings/[event]/[start]/constants.ts:13
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:16
 msgid "An error occurred while uploading the prerecording."
 msgstr "An error occurred while uploading the prerecording."
 
-#: src/app/api/prerecordings/[event]/[start]/constants.ts:16
+#: src/app/auth/error/page.tsx:18
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:14
+msgid "Auth error • jasmine"
+msgstr "Auth error • jasmine"
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:19
 msgid "Content-Type header is missing."
 msgstr "Content-Type header is missing."
 
@@ -53,7 +58,11 @@ msgstr "Error"
 msgid "Error • jasmine"
 msgstr "Error • jasmine"
 
-#: src/app/api/prerecordings/[event]/[start]/constants.ts:19
+#: src/components/views/auth/auth-error-page-view/main.tsx:14
+msgid "Error in auth flow"
+msgstr "Error in auth flow"
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:22
 msgid "Event instance not found."
 msgstr "Event instance not found."
 
@@ -67,7 +76,7 @@ msgstr "Event not found • jasmine"
 msgid "Event not found."
 msgstr "Event not found."
 
-#: src/app/events/page.tsx:18
+#: src/app/(protected)/events/page.tsx:19
 #: src/components/metadata/events/events-page-metadata/main.tsx:14
 msgid "Events • jasmine"
 msgstr "Events • jasmine"
@@ -92,11 +101,13 @@ msgstr "Info"
 msgid "Invalid input."
 msgstr "Invalid input."
 
-#: src/app/events/page.tsx:19
+#: src/app/(protected)/events/page.tsx:18
+#: src/app/(protected)/prerecordings/[event]/page.tsx:18
+#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:18
+#: src/app/auth/error/page.tsx:17
 #: src/app/layout.tsx:19
 #: src/app/layout.tsx:20
-#: src/app/prerecordings/[event]/page.tsx:19
-#: src/app/prerecordings/[event]/upload/page.tsx:19
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
 #: src/components/metadata/events/events-page-metadata/main.tsx:13
 #: src/components/metadata/prerecordings/prerecordings-event-not-found-metadata/main.tsx:13
 #: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:13
@@ -105,6 +116,10 @@ msgstr "Invalid input."
 #: src/components/metadata/root/root-not-found-metadata/main.tsx:13
 msgid "jasmine"
 msgstr "jasmine"
+
+#: src/components/layouts/session-layout/components/user-menu/components/logout-button/main.tsx:23
+msgid "Logout"
+msgstr "Logout"
 
 #: src/components/widgets/event-list-widget/main.tsx:37
 msgid "No events."
@@ -135,7 +150,7 @@ msgstr "Prerecording not found."
 msgid "Prerecording uploaded successfully"
 msgstr "Prerecording uploaded successfully"
 
-#: src/app/prerecordings/[event]/page.tsx:18
+#: src/app/(protected)/prerecordings/[event]/page.tsx:19
 #: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:14
 msgid "Prerecordings • jasmine"
 msgstr "Prerecordings • jasmine"
@@ -165,7 +180,7 @@ msgstr "Success"
 msgid "Upload"
 msgstr "Upload"
 
-#: src/app/prerecordings/[event]/upload/page.tsx:18
+#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:19
 #: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:14
 msgid "Upload prerecording • jasmine"
 msgstr "Upload prerecording • jasmine"
@@ -173,3 +188,31 @@ msgstr "Upload prerecording • jasmine"
 #: src/hooks/use-toasts/main.tsx:55
 msgid "Warning"
 msgstr "Warning"
+
+#: src/actions/numbat/delete-prerecording/constants.ts:7
+msgid "You are not authorized to delete the prerecording."
+msgstr "You are not authorized to delete the prerecording."
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:11
+msgid "You are not authorized to download the prerecording."
+msgstr "You are not authorized to download the prerecording."
+
+#: src/actions/beaver/get-event/constants.ts:7
+msgid "You are not authorized to fetch the event."
+msgstr "You are not authorized to fetch the event."
+
+#: src/actions/beaver/list-events/constants.ts:6
+msgid "You are not authorized to list events."
+msgstr "You are not authorized to list events."
+
+#: src/actions/numbat/list-prerecordings/constants.ts:7
+msgid "You are not authorized to list prerecordings."
+msgstr "You are not authorized to list prerecordings."
+
+#: src/actions/beaver/list-schedules/constants.ts:6
+msgid "You are not authorized to list schedules."
+msgstr "You are not authorized to list schedules."
+
+#: src/app/api/prerecordings/[event]/[start]/constants.ts:25
+msgid "You are not authorized to upload the prerecording."
+msgstr "You are not authorized to upload the prerecording."
