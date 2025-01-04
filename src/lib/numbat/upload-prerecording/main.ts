@@ -29,7 +29,7 @@ export async function uploadPrerecording({
     },
   );
 
-  if (error) {
+  if (error || !response.ok) {
     if (response.status === 404) throw new EventInstanceNotFoundError();
     throw new NumbatError();
   }

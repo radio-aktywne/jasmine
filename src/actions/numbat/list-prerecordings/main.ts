@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../auth";
 import { NumbatError } from "../../../lib/numbat/errors";
 import {
   EventNotFoundError,
@@ -12,6 +13,9 @@ import { ListPrerecordingsInput, ListPrerecordingsOutput } from "./types";
 export async function listPrerecordings(
   input: ListPrerecordingsInput,
 ): Promise<ListPrerecordingsOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

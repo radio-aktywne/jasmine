@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../auth";
 import {
   deletePrerecording as internalDeletePrerecording,
   PrerecordingNotFoundError,
@@ -12,6 +13,9 @@ import { DeletePrerecordingInput, DeletePrerecordingOutput } from "./types";
 export async function deletePrerecording(
   input: DeletePrerecordingInput,
 ): Promise<DeletePrerecordingOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

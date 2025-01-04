@@ -8,6 +8,9 @@ export const errors = {
     notFound: msg({
       message: "Prerecording not found.",
     }),
+    unauthorized: msg({
+      message: "You are not authorized to download the prerecording.",
+    }),
   },
   upload: {
     generic: msg({
@@ -18,6 +21,9 @@ export const errors = {
     }),
     notFound: msg({
       message: "Event instance not found.",
+    }),
+    unauthorized: msg({
+      message: "You are not authorized to upload the prerecording.",
     }),
   },
 };
