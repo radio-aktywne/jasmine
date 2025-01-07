@@ -13,9 +13,6 @@ You can configure the app at runtime using various environment variables:
 - `JASMINE__SERVER__PORT` -
   port to run the server on
   (default: `10620`)
-- `JASMINE__COOKIES__DOMAIN` -
-  domain for the cookies
-  (default: ``)
 - `JASMINE__SECRETS__AUTH` -
   secrets for encrypting auth cookies
   (default: `secret`)
