@@ -41,8 +41,8 @@ msgstr "An error occurred while listing schedules."
 msgid "An error occurred while uploading the prerecording."
 msgstr "An error occurred while uploading the prerecording."
 
-#: src/app/auth/error/page.tsx:18
 #: src/components/metadata/auth/auth-error-page-metadata/main.tsx:14
+#: src/app/auth/error/page.tsx:18
 msgid "Auth error • jasmine"
 msgstr "Auth error • jasmine"
 
@@ -70,14 +70,14 @@ msgstr "Event instance not found."
 msgid "Event not found • jasmine"
 msgstr "Event not found • jasmine"
 
-#: src/actions/beaver/get-event/constants.ts:6
-#: src/actions/numbat/list-prerecordings/constants.ts:6
 #: src/components/views/prerecordings/prerecordings-event-not-found-view/main.tsx:12
+#: src/actions/numbat/list-prerecordings/constants.ts:6
+#: src/actions/beaver/get-event/constants.ts:6
 msgid "Event not found."
 msgstr "Event not found."
 
-#: src/app/(protected)/events/page.tsx:19
 #: src/components/metadata/events/events-page-metadata/main.tsx:14
+#: src/app/(protected)/events/page.tsx:19
 msgid "Events • jasmine"
 msgstr "Events • jasmine"
 
@@ -93,27 +93,27 @@ msgstr "File is required"
 msgid "Info"
 msgstr "Info"
 
-#: src/actions/beaver/get-event/constants.ts:5
-#: src/actions/beaver/list-events/constants.ts:5
-#: src/actions/beaver/list-schedules/constants.ts:5
-#: src/actions/numbat/delete-prerecording/constants.ts:5
 #: src/actions/numbat/list-prerecordings/constants.ts:5
+#: src/actions/numbat/delete-prerecording/constants.ts:5
+#: src/actions/beaver/list-schedules/constants.ts:5
+#: src/actions/beaver/list-events/constants.ts:5
+#: src/actions/beaver/get-event/constants.ts:5
 msgid "Invalid input."
 msgstr "Invalid input."
 
-#: src/app/(protected)/events/page.tsx:18
-#: src/app/(protected)/prerecordings/[event]/page.tsx:18
-#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:18
-#: src/app/auth/error/page.tsx:17
+#: src/components/metadata/root/root-not-found-metadata/main.tsx:13
+#: src/components/metadata/root/root-error-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:13
+#: src/components/metadata/prerecordings/prerecordings-event-not-found-metadata/main.tsx:13
+#: src/components/metadata/events/events-page-metadata/main.tsx:13
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
 #: src/app/layout.tsx:19
 #: src/app/layout.tsx:20
-#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
-#: src/components/metadata/events/events-page-metadata/main.tsx:13
-#: src/components/metadata/prerecordings/prerecordings-event-not-found-metadata/main.tsx:13
-#: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:13
-#: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:13
-#: src/components/metadata/root/root-error-metadata/main.tsx:13
-#: src/components/metadata/root/root-not-found-metadata/main.tsx:13
+#: src/app/auth/error/page.tsx:17
+#: src/app/(protected)/prerecordings/[event]/page.tsx:18
+#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:18
+#: src/app/(protected)/events/page.tsx:18
 msgid "jasmine"
 msgstr "jasmine"
 
@@ -141,8 +141,8 @@ msgstr "Page not found"
 msgid "Prerecording deleted."
 msgstr "Prerecording deleted."
 
-#: src/actions/numbat/delete-prerecording/constants.ts:6
 #: src/app/api/prerecordings/[event]/[start]/constants.ts:8
+#: src/actions/numbat/delete-prerecording/constants.ts:6
 msgid "Prerecording not found."
 msgstr "Prerecording not found."
 
@@ -150,8 +150,8 @@ msgstr "Prerecording not found."
 msgid "Prerecording uploaded successfully"
 msgstr "Prerecording uploaded successfully"
 
-#: src/app/(protected)/prerecordings/[event]/page.tsx:19
 #: src/components/metadata/prerecordings/prerecordings-page-metadata/main.tsx:14
+#: src/app/(protected)/prerecordings/[event]/page.tsx:19
 msgid "Prerecordings • jasmine"
 msgstr "Prerecordings • jasmine"
 
@@ -175,13 +175,13 @@ msgstr "Start is required"
 msgid "Success"
 msgstr "Success"
 
-#: src/components/widgets/prerecording-list-widget/main.tsx:57
 #: src/components/widgets/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:66
+#: src/components/widgets/prerecording-list-widget/main.tsx:57
 msgid "Upload"
 msgstr "Upload"
 
-#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:19
 #: src/components/metadata/prerecordings/upload-prerecording-page-metadata/main.tsx:14
+#: src/app/(protected)/prerecordings/[event]/upload/page.tsx:19
 msgid "Upload prerecording • jasmine"
 msgstr "Upload prerecording • jasmine"
 

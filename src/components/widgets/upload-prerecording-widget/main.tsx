@@ -1,6 +1,6 @@
 "use client";
 
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
@@ -28,8 +28,8 @@ export function UploadPrerecordingWidget({
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        const error = _(data["error"]);
+        const data = (await response.json()) as { error: string };
+        const error = _(data.error);
 
         toasts.error(error);
         return { file: error, start: error };

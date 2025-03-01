@@ -22,10 +22,7 @@ export function useUploadPrerecordingForm({
         initialValues?.file === undefined
           ? defaultValues.file
           : initialValues.file,
-      start:
-        initialValues?.start === undefined
-          ? defaultValues.start
-          : initialValues.start,
+      start: initialValues?.start ?? defaultValues.start,
     },
     validate: validate,
   });

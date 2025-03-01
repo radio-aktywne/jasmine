@@ -1,5 +1,5 @@
 import { i18n } from "@lingui/core";
-import { msg, t } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { Metadata } from "next";
 
 import { UploadPrerecordingPageMetadata } from "../../../../../components/metadata/prerecordings/upload-prerecording-page-metadata";
@@ -15,8 +15,8 @@ export async function generateMetadata({}: UploadPrerecordingPageInput): Promise
   await loadLocale({ i18n, language });
 
   return {
-    description: t(i18n)(msg({ message: "jasmine" })),
-    title: t(i18n)(msg({ message: "Upload prerecording • jasmine" })),
+    description: i18n._(msg({ message: "jasmine" })),
+    title: i18n._(msg({ message: "Upload prerecording • jasmine" })),
   };
 }
 
