@@ -1,6 +1,6 @@
 "use client";
 
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { ActionIcon, Group, Title } from "@mantine/core";
 import { IconDownload, IconTrash } from "@tabler/icons-react";
@@ -26,7 +26,7 @@ export function PrerecordingTile({ prerecording }: PrerecordingTileInput) {
     if (error) toasts.error(_(error));
     else toasts.success(_(msg({ message: "Prerecording deleted." })));
 
-    refresh();
+    void refresh();
   }, [_, prerecording, refresh, toasts]);
 
   return (
