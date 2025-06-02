@@ -5,12 +5,14 @@ import { useLingui } from "@lingui/react";
 import { Button, FileInput, Loader, Select, Stack } from "@mantine/core";
 import { useCallback, useState } from "react";
 
+import { useListSchedules } from "../../../../../hooks/beaver/use-list-schedules";
 import {
   useUploadPrerecordingForm,
   UseUploadPrerecordingFormValues,
 } from "../../../../../hooks/forms/use-upload-prerecording-form";
+import { datetimeFormat } from "./constants";
 import { UploadPrerecordingFormInput } from "./types";
-import { getStartLabel } from "./utils";
+import { getEndDatetime, getStartLabel } from "./utils";
 
 export function UploadPrerecordingForm({
   event,
@@ -21,10 +23,12 @@ export function UploadPrerecordingForm({
 
   const { _ } = useLingui();
 
-  const { allowedValues, form, loading } = useUploadPrerecordingForm({
-    event: event,
-    validate: validate,
+  const { data: schedules, loading: schedulesLoading } = useListSchedules({
+    end: getEndDatetime().format(datetimeFormat),
+    where: JSON.stringify({ id: event.id }),
   });
+
+  const { form } = useUploadPrerecordingForm({ validate: validate });
 
   const formSetErrors = form.setErrors;
 
@@ -41,12 +45,14 @@ export function UploadPrerecordingForm({
     [formSetErrors, onUpload],
   );
 
-  if (loading) return <Loader />;
+  if (schedulesLoading) return <Loader />;
 
-  const startSelectData = allowedValues.start.map((value) => ({
-    label: getStartLabel(value),
-    value: value,
-  }));
+  const startSelectData = schedules?.schedules.flatMap((schedule) =>
+    schedule.instances.map((instance) => ({
+      label: getStartLabel(schedule.event, instance),
+      value: instance.start,
+    })),
+  );
 
   return (
     <form onSubmit={form.onSubmit(handleUpload)}>

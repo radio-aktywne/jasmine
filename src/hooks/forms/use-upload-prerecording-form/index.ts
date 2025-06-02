@@ -1,6 +1,5 @@
 export { useUploadPrerecordingForm } from "./main";
 export type {
-  UseUploadPrerecordingFormAllowedValues,
   UseUploadPrerecordingFormDefaultValues,
   UseUploadPrerecordingFormInitialValues,
   UseUploadPrerecordingFormInput,

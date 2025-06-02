@@ -5,6 +5,5 @@ import {
 
 export type PrerecordingListWidgetInput = {
   event: ListPrerecordingsInput["event"];
-  perPage?: number;
   prerecordings: ListPrerecordingsOutput["prerecordings"];
 };
