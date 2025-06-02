@@ -2,31 +2,26 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Center, Pagination, Stack, Title } from "@mantine/core";
+import { ActionIcon, Center, Group, Stack, Title } from "@mantine/core";
+import { List, ListItem } from "@radio-aktywne/ui";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { MdUpload } from "react-icons/md";
 
 import { useListPrerecordings } from "../../../hooks/numbat/use-list-prerecordings";
 import { useToasts } from "../../../hooks/use-toasts";
-import { PrerecordingTile } from "./components/prerecording-tile";
+import { PrerecordingItem } from "./components/prerecording-item";
 import { PrerecordingListWidgetInput } from "./types";
 
 export function PrerecordingListWidget({
   event: event,
-  perPage = 5,
   prerecordings: prefetchedPrerecordings,
 }: PrerecordingListWidgetInput) {
-  const [page, setPage] = useState(1);
-
   const { _ } = useLingui();
   const toasts = useToasts();
 
-  const limit = perPage;
-  const offset = perPage * (page - 1);
   const { data: currentPrerecordings, error } = useListPrerecordings({
     event: event,
-    limit: limit,
-    offset: offset,
   });
   const prerecordings = currentPrerecordings ?? prefetchedPrerecordings;
 
@@ -38,26 +33,28 @@ export function PrerecordingListWidget({
     return <Title>{_(msg({ message: "No prerecordings." }))}</Title>;
   }
 
-  const pages = Math.ceil(prerecordings.count / perPage);
-
   return (
-    <Stack>
-      <Stack>
-        {prerecordings.prerecordings.map((prerecording) => (
-          <PrerecordingTile
-            key={prerecording.start}
-            prerecording={prerecording}
-          />
-        ))}
-      </Stack>
+    <Stack mah="100%" w="100%">
       <Center>
-        <Stack>
-          <Pagination onChange={setPage} total={pages} value={page} withEdges />
-          <Button component={Link} href={`/prerecordings/${event}/upload`}>
-            {_(msg({ message: "Upload" }))}
-          </Button>
-        </Stack>
+        <Group>
+          <Title>{_(msg({ message: "Prerecordings" }))}</Title>
+          <ActionIcon
+            component={Link}
+            href={`/prerecordings/${event}/upload`}
+            size="auto"
+            variant="transparent"
+          >
+            <MdUpload size="2em" />
+          </ActionIcon>
+        </Group>
       </Center>
+      <List style={{ overflowY: "auto" }}>
+        {prerecordings.prerecordings.map((prerecording) => (
+          <ListItem key={prerecording.start}>
+            <PrerecordingItem prerecording={prerecording} />
+          </ListItem>
+        ))}
+      </List>
     </Stack>
   );
 }
