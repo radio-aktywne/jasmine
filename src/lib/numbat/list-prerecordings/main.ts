@@ -14,6 +14,7 @@ export async function listPrerecordings({
   order,
 }: ListPrerecordingsInput): Promise<ListPrerecordingsOutput> {
   const { data, error, response } = await numbat.GET("/prerecordings/{event}", {
+    cache: "no-store",
     params: {
       path: {
         event: event,
