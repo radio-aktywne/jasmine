@@ -12,6 +12,7 @@ export async function downloadPrerecording({
   const { data, error, response } = await numbat.GET(
     "/prerecordings/{event}/{start}",
     {
+      cache: "no-store",
       params: {
         path: {
           event: event,
