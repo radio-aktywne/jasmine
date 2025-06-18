@@ -1,5 +1,6 @@
-import { ListPrerecordingsOutput } from "../../../../../lib/numbat/list-prerecordings";
+import { ListEventsPrerecordingsOutput } from "../../../../../lib/wrappers/list-events-prerecordings";
 
 export type PrerecordingItemInput = {
-  prerecording: ListPrerecordingsOutput["prerecordings"]["prerecordings"][number];
+  onDelete?: () => void;
+  prerecording: ListEventsPrerecordingsOutput["prerecordings"][number];
 };

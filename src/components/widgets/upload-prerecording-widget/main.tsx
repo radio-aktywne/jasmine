@@ -13,7 +13,7 @@ import {
 import { UploadPrerecordingWidgetInput } from "./types";
 
 export function UploadPrerecordingWidget({
-  event,
+  show,
 }: UploadPrerecordingWidgetInput) {
   const router = useRouter();
 
@@ -21,8 +21,10 @@ export function UploadPrerecordingWidget({
   const toasts = useToasts();
 
   const handleUploadAfterValidation = useCallback(
-    async (start: string, file: File) => {
-      const response = await fetch(`/api/prerecordings/${event.id}/${start}`, {
+    async (instance: string, file: File) => {
+      const [event, start] = instance.split("/");
+
+      const response = await fetch(`/api/prerecordings/${event}/${start}`, {
         body: file,
         method: "PUT",
       });
@@ -36,22 +38,22 @@ export function UploadPrerecordingWidget({
       }
 
       toasts.success(_(msg({ message: "Prerecording uploaded successfully" })));
-      router.push(`/prerecordings/${event.id}`);
+      router.push(`/shows/${show.id}/prerecordings`);
     },
-    [_, event, router, toasts],
+    [_, router, show, toasts],
   );
 
   const handleUpload = useCallback(
     async (data: UploadPrerecordingFormData) => {
-      if (!data.start)
-        return { start: _(msg({ message: "Start is required" })) };
+      if (!data.instance)
+        return { instance: _(msg({ message: "Instance is required" })) };
 
       if (!data.file) return { file: _(msg({ message: "File is required" })) };
 
-      return handleUploadAfterValidation(data.start, data.file);
+      return handleUploadAfterValidation(data.instance, data.file);
     },
     [_, handleUploadAfterValidation],
   );
 
-  return <UploadPrerecordingForm event={event} onUpload={handleUpload} />;
+  return <UploadPrerecordingForm onUpload={handleUpload} show={show} />;
 }

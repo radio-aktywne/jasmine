@@ -2,42 +2,60 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { ActionIcon, Text } from "@mantine/core";
+import { ActionIcon, Divider, Group, Text } from "@mantine/core";
 import { useCallback } from "react";
 import { MdDelete, MdDownload } from "react-icons/md";
 
 import { deletePrerecording } from "../../../../../actions/numbat/delete-prerecording";
-import { useListPrerecordings } from "../../../../../hooks/numbat/use-list-prerecordings";
+import { useLanguage } from "../../../../../hooks/use-language";
 import { useToasts } from "../../../../../hooks/use-toasts";
 import { PrerecordingItemInput } from "./types";
+import {
+  formatFilename,
+  formatSizeText,
+  formatStartDateText,
+  formatStartTimeText,
+} from "./utils";
 
-export function PrerecordingItem({ prerecording }: PrerecordingItemInput) {
+export function PrerecordingItem({
+  onDelete,
+  prerecording,
+}: PrerecordingItemInput) {
   const { _ } = useLingui();
   const toasts = useToasts();
-
-  const { refresh } = useListPrerecordings({ event: prerecording.event });
+  const { language } = useLanguage();
 
   const handleDelete = useCallback(async () => {
     const { error } = await deletePrerecording({
-      event: prerecording.event,
+      event: prerecording.event.id,
       start: prerecording.start,
     });
 
     if (error) toasts.error(_(error));
     else toasts.success(_(msg({ message: "Prerecording deleted." })));
 
-    void refresh();
-  }, [_, prerecording, refresh, toasts]);
+    onDelete?.();
+  }, [_, onDelete, prerecording, toasts]);
 
   return (
     <>
-      <Text fw="bold" size="xs">
-        {prerecording.start}
-      </Text>
+      <Group gap="xs">
+        <Text fw="bold" size="xs">
+          {formatStartDateText(prerecording)}
+        </Text>
+        <Divider orientation="vertical" size="sm" />
+        <Text fw="bold" size="xs">
+          {formatStartTimeText(prerecording)}
+        </Text>
+        <Divider orientation="vertical" size="sm" />
+        <Text fw="bold" size="xs">
+          {formatSizeText(prerecording, language)}
+        </Text>
+      </Group>
       <ActionIcon
         component="a"
-        download={`${prerecording.event}-${prerecording.start}`}
-        href={`/api/prerecordings/${prerecording.event}/${prerecording.start}`}
+        download={formatFilename(prerecording)}
+        href={`/api/prerecordings/${prerecording.event.id}/${prerecording.start}`}
         size="auto"
         variant="transparent"
       >

@@ -2,7 +2,7 @@ import { UseFormReturnType } from "@mantine/form";
 
 export type UseUploadPrerecordingFormValues = {
   file: File | null | undefined;
-  start: string | undefined;
+  instance: string | undefined;
 };
 
 export type UseUploadPrerecordingFormInitialValues =

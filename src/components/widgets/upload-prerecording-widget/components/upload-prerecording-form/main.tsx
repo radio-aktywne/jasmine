@@ -5,28 +5,30 @@ import { useLingui } from "@lingui/react";
 import { Button, FileInput, Loader, Select, Stack } from "@mantine/core";
 import { useCallback, useState } from "react";
 
-import { useListSchedules } from "../../../../../hooks/beaver/use-list-schedules";
 import {
   useUploadPrerecordingForm,
   UseUploadPrerecordingFormValues,
 } from "../../../../../hooks/forms/use-upload-prerecording-form";
+import { useListEventsInstances } from "../../../../../hooks/wrappers/use-list-events-instances";
 import { datetimeFormat } from "./constants";
 import { UploadPrerecordingFormInput } from "./types";
-import { getEndDatetime, getStartLabel } from "./utils";
+import { getEndDatetime, getInstanceLabel, getInstanceValue } from "./utils";
 
 export function UploadPrerecordingForm({
-  event,
   onUpload,
+  show,
   validate,
 }: UploadPrerecordingFormInput) {
   const [uploading, setUploading] = useState(false);
 
   const { _ } = useLingui();
 
-  const { data: schedules, loading: schedulesLoading } = useListSchedules({
-    end: getEndDatetime().format(datetimeFormat),
-    where: JSON.stringify({ id: event.id }),
-  });
+  const { data: instances, loading: instancesLoading } = useListEventsInstances(
+    {
+      end: getEndDatetime().format(datetimeFormat),
+      where: JSON.stringify({ show: { id: show.id }, type: "prerecorded" }),
+    },
+  );
 
   const { form } = useUploadPrerecordingForm({ validate: validate });
 
@@ -45,23 +47,21 @@ export function UploadPrerecordingForm({
     [formSetErrors, onUpload],
   );
 
-  if (schedulesLoading) return <Loader />;
+  if (instancesLoading) return <Loader />;
 
-  const startSelectData = schedules?.schedules.flatMap((schedule) =>
-    schedule.instances.map((instance) => ({
-      label: getStartLabel(schedule.event, instance),
-      value: instance.start,
-    })),
-  );
+  const instanceSelectData = instances?.map((instance) => ({
+    label: getInstanceLabel(instance),
+    value: getInstanceValue(instance),
+  }));
 
   return (
     <form onSubmit={form.onSubmit(handleUpload)}>
       <Stack>
         <Select
-          data={startSelectData}
-          label={_(msg({ message: "Start" }))}
+          data={instanceSelectData}
+          label={_(msg({ message: "Instance" }))}
           required={true}
-          {...form.getInputProps("start")}
+          {...form.getInputProps("instance")}
         />
         <FileInput
           label={_(msg({ message: "File" }))}
