@@ -18,7 +18,7 @@ export function useUploadPrerecordingForm({
         initialValues?.file === undefined
           ? defaultValues.file
           : initialValues.file,
-      start: initialValues?.start ?? defaultValues.start,
+      instance: initialValues?.instance ?? defaultValues.instance,
     },
     validate: validate,
   });

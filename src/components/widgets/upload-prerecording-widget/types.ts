@@ -1,5 +1,5 @@
-import { GetEventSuccessOutput } from "../../../actions/beaver/get-event";
+import { GetShowOutput } from "../../../lib/beaver/get-show";
 
 export type UploadPrerecordingWidgetInput = {
-  event: GetEventSuccessOutput["data"];
+  show: GetShowOutput["show"];
 };
