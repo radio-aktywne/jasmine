@@ -31,22 +31,29 @@ export function PrerecordingListWidget({
     if (error) toasts.warning(_(error));
   }, [_, error, toasts]);
 
-  if (prerecordings.length === 0) {
-    return <Title>{_(msg({ message: "No prerecordings." }))}</Title>;
-  }
-
   return (
-    <Stack mah="100%" w="100%">
-      <Center>
-        <Title>{_(msg({ message: "Prerecordings" }))}</Title>
-      </Center>
-      <List style={{ overflowY: "auto" }}>
-        {prerecordings.map((prerecording) => (
-          <ListItem key={`${prerecording.event.id}-${prerecording.start}`}>
-            <PrerecordingItem onDelete={refresh} prerecording={prerecording} />
-          </ListItem>
-        ))}
-      </List>
+    <Stack mah="100%" w={prerecordings.length === 0 ? undefined : "100%"}>
+      {prerecordings.length === 0 ? (
+        <Center>
+          <Title>{_(msg({ message: "No prerecordings." }))}</Title>
+        </Center>
+      ) : (
+        <>
+          <Center>
+            <Title>{_(msg({ message: "Prerecordings" }))}</Title>
+          </Center>
+          <List style={{ overflowY: "auto" }}>
+            {prerecordings.map((prerecording) => (
+              <ListItem key={`${prerecording.event.id}-${prerecording.start}`}>
+                <PrerecordingItem
+                  onDelete={refresh}
+                  prerecording={prerecording}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </>
+      )}
       <Button component={Link} href={`/shows/${show.id}/prerecordings/upload`}>
         {_(msg({ message: "Upload" }))}
       </Button>

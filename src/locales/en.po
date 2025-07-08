@@ -109,7 +109,7 @@ msgstr "jasmine"
 msgid "Logout"
 msgstr "Logout"
 
-#: src/components/widgets/prerecording-list-widget/main.tsx:35
+#: src/components/widgets/prerecording-list-widget/main.tsx:38
 msgid "No prerecordings."
 msgstr "No prerecordings."
 
@@ -138,7 +138,7 @@ msgstr "Prerecording not found."
 msgid "Prerecording uploaded successfully"
 msgstr "Prerecording uploaded successfully"
 
-#: src/components/widgets/prerecording-list-widget/main.tsx:41
+#: src/components/widgets/prerecording-list-widget/main.tsx:43
 msgid "Prerecordings"
 msgstr "Prerecordings"
 
@@ -177,7 +177,7 @@ msgid "Success"
 msgstr "Success"
 
 #: src/components/widgets/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:72
-#: src/components/widgets/prerecording-list-widget/main.tsx:51
+#: src/components/widgets/prerecording-list-widget/main.tsx:58
 msgid "Upload"
 msgstr "Upload"
 
