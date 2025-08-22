@@ -4,9 +4,11 @@ import { Metadata } from "next";
 
 import { PrerecordingListPageMetadata } from "../../../../../components/metadata/details/prerecordings/prerecording-list-page-metadata";
 import { PrerecordingListPageView } from "../../../../../components/views/details/prerecordings/prerecording-list-page-view";
+import dayjs from "../../../../../dayjs";
 import { getLanguage } from "../../../../../lib/i18n/get-language";
 import { loadLocale } from "../../../../../lib/i18n/load-locale";
 import { PrerecordingListPageInput } from "./types";
+import { parseParams } from "./utils";
 
 export const dynamic = "force-dynamic";
 
@@ -22,13 +24,32 @@ export async function generateMetadata({}: PrerecordingListPageInput): Promise<M
 
 export default function PrerecordingListPage({
   params,
+  searchParams,
 }: PrerecordingListPageInput) {
-  const show = params.id;
+  const { id: show } = params;
+
+  const { data: parsedSearchParams, error: parsingSearchParamsError } =
+    parseParams(searchParams);
+
+  if (parsingSearchParamsError) throw new Error("Invalid query parameters");
+
+  const { after, before, timezone } = parsedSearchParams;
+
+  if (after && !dayjs.tz(after, timezone).isValid())
+    throw new Error("Invalid query parameters");
+
+  if (before && !dayjs.tz(before, timezone).isValid())
+    throw new Error("Invalid query parameters");
 
   return (
     <>
       <PrerecordingListPageMetadata show={show} />
-      <PrerecordingListPageView show={show} />
+      <PrerecordingListPageView
+        after={after}
+        before={before}
+        show={show}
+        timezone={timezone}
+      />
     </>
   );
 }

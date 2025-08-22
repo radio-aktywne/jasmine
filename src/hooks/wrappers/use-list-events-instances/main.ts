@@ -21,6 +21,10 @@ export function useListEventsInstances({
     loading: true,
   });
 
+  useEffect(() => {
+    setState({ loading: true });
+  }, [end, include, order, start, where]);
+
   const refresh = useCallback(async () => {
     const { data, error } = await listEventsInstances({
       end: end,

@@ -6,7 +6,10 @@ import { PrerecordingListWidget } from "../../../../widgets/prerecording-list-wi
 import { PrerecordingListPageViewInput } from "./types";
 
 export async function PrerecordingListPageView({
+  after,
+  before,
   show: showId,
+  timezone,
 }: PrerecordingListPageViewInput) {
   const { show } = await (async () => {
     try {
@@ -17,19 +20,24 @@ export async function PrerecordingListPageView({
     }
   })();
 
-  const include = JSON.stringify({ show: true });
-  const where = JSON.stringify({ show: { id: show.id }, type: "prerecorded" });
-  const { prerecordings } = await listEventsPrerecordings({
-    include: include,
-    where: where,
-  });
+  const props = {
+    after: after && before && timezone ? after : undefined,
+    before: after && before && timezone ? before : undefined,
+    include: JSON.stringify({ show: true }),
+    limit: 100,
+    timezone: after && before && timezone ? timezone : undefined,
+    where: JSON.stringify({
+      show: { is: { id: show.id } },
+      type: "prerecorded",
+    }),
+  };
+  const { prerecordings } = await listEventsPrerecordings(props);
 
   return (
     <PrerecordingListWidget
-      include={include}
       prerecordings={prerecordings}
       show={show}
-      where={where}
+      {...props}
     />
   );
 }

@@ -14,24 +14,32 @@ export function useListEventsPrerecordings({
   before,
   include,
   interval = 1000 * 5,
+  limit,
   order,
+  timezone,
   where,
 }: UseListEventsPrerecordingsInput): UseListEventsPrerecordingsOutput {
   const [state, setState] = useState<UseListEventsPrerecordingsState>({
     loading: true,
   });
 
+  useEffect(() => {
+    setState({ loading: true });
+  }, [after, before, include, limit, order, timezone, where]);
+
   const refresh = useCallback(async () => {
     const { data, error } = await listEventsPrerecordings({
       after: after,
       before: before,
       include: include,
+      limit: limit,
       order: order,
+      timezone: timezone,
       where: where,
     });
     if (error) setState({ error: error, loading: false });
     else setState({ data: data, loading: false });
-  }, [after, before, include, order, where]);
+  }, [after, before, include, limit, order, timezone, where]);
 
   const { start, stop } = useInterval(refresh, interval);
 

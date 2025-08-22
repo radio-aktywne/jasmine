@@ -26,7 +26,9 @@ export async function listEventsPrerecordings(
       after: parsed.data.after,
       before: parsed.data.before,
       include: parsed.data.include,
+      limit: parsed.data.limit,
       order: parsed.data.order,
+      timezone: parsed.data.timezone,
       where: parsed.data.where,
     });
     return { data: prerecordings };

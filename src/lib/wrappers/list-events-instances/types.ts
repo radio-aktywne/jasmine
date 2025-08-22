@@ -3,7 +3,7 @@ import {
   ListSchedulesOutput,
 } from "../../beaver/list-schedules";
 
-export type Instance = {
+export type ListEventsInstancesInstance = {
   end: ListSchedulesOutput["schedules"]["schedules"][number]["instances"][number]["end"];
   event: ListSchedulesOutput["schedules"]["schedules"][number]["event"];
   start: ListSchedulesOutput["schedules"]["schedules"][number]["instances"][number]["start"];
@@ -18,5 +18,5 @@ export type ListEventsInstancesInput = {
 };
 
 export type ListEventsInstancesOutput = {
-  instances: Instance[];
+  instances: ListEventsInstancesInstance[];
 };

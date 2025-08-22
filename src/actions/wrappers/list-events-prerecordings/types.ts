@@ -9,7 +9,9 @@ export type ListEventsPrerecordingsInput = {
   after?: InternalListEventsPrerecordingsInput["after"];
   before?: InternalListEventsPrerecordingsInput["before"];
   include?: InternalListEventsPrerecordingsInput["include"];
+  limit?: InternalListEventsPrerecordingsInput["limit"];
   order?: InternalListEventsPrerecordingsInput["order"];
+  timezone?: InternalListEventsPrerecordingsInput["timezone"];
   where?: InternalListEventsPrerecordingsInput["where"];
 };
 

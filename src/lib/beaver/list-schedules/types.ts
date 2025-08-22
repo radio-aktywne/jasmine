@@ -1,13 +1,13 @@
 import { components } from "../../../services/beaver";
 
 export type ListSchedulesInput = {
-  end?: string;
-  include?: string;
-  limit?: number;
-  offset?: number;
-  order?: string;
-  start?: string;
-  where?: string;
+  end?: null | string;
+  include?: null | string;
+  limit?: null | number;
+  offset?: null | number;
+  order?: null | string;
+  start?: null | string;
+  where?: null | string;
 };
 
 export type ListSchedulesOutput = {
