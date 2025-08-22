@@ -1,4 +1,4 @@
-export type PrerecordingListSearchParams = {
+export type PrerecordingListPageSearchParams = {
   after?: string;
   before?: string;
   timezone?: string;
@@ -10,5 +10,5 @@ export type PrerecordingListPageParams = {
 
 export type PrerecordingListPageInput = {
   params: PrerecordingListPageParams;
-  searchParams: PrerecordingListSearchParams;
+  searchParams: PrerecordingListPageSearchParams;
 };
