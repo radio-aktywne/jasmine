@@ -1,8 +1,8 @@
 import { parseQueryParams } from "../../../../../lib/urls/parse-query-params";
 import { searchParamsSchema } from "./schemas";
-import { PrerecordingListSearchParams } from "./types";
+import { PrerecordingListPageSearchParams } from "./types";
 
-export function parseParams(params: PrerecordingListSearchParams) {
+export function parseParams(params: PrerecordingListPageSearchParams) {
   return parseQueryParams({
     params: new URLSearchParams(params),
     schema: searchParamsSchema,
