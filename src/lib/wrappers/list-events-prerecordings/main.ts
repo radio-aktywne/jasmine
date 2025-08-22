@@ -6,6 +6,7 @@ import { listEvents } from "../../beaver/list-events";
 import { NumbatError } from "../../numbat/errors";
 import { headPrerecording } from "../../numbat/head-prerecording";
 import { listPrerecordings } from "../../numbat/list-prerecordings";
+import { datetimeDataFormat } from "./constants";
 import { ListEventsPrerecordingsError } from "./errors";
 import {
   ListEventsPrerecordingsInput,
@@ -16,12 +17,14 @@ export async function listEventsPrerecordings({
   after,
   before,
   include,
+  limit,
   order = "desc",
+  timezone,
   where,
 }: ListEventsPrerecordingsInput): Promise<ListEventsPrerecordingsOutput> {
   const { events } = await (async () => {
     try {
-      return listEvents({ include: include, where: where });
+      return listEvents({ include: include, limit: null, where: where });
     } catch (error) {
       if (error instanceof BeaverError)
         throw new ListEventsPrerecordingsError();
@@ -33,9 +36,22 @@ export async function listEventsPrerecordings({
     const { prerecordings } = await (async () => {
       try {
         return await listPrerecordings({
-          after: after,
-          before: before,
+          after: after
+            ? dayjs
+                .tz(after, timezone)
+                .startOf("day")
+                .tz(event.timezone)
+                .format(datetimeDataFormat)
+            : undefined,
+          before: before
+            ? dayjs
+                .tz(before, timezone)
+                .endOf("day")
+                .tz(event.timezone)
+                .format(datetimeDataFormat)
+            : undefined,
           event: event.id,
+          limit: limit,
           order: order,
         });
       } catch (error) {
@@ -45,7 +61,7 @@ export async function listEventsPrerecordings({
       }
     })();
 
-    const promises = prerecordings.prerecordings.map(async (prerecording) => {
+    return prerecordings.prerecordings.map(async (prerecording) => {
       const { etag, length, modified, type } = await (async () => {
         try {
           return await headPrerecording({
@@ -68,12 +84,13 @@ export async function listEventsPrerecordings({
         type: type,
       };
     });
-
-    return await Promise.all(promises);
   });
 
-  const prerecordings = (await Promise.all(promises))
-    .flat()
+  const prerecordings = (
+    await Promise.all(
+      (await Promise.all(promises)).flat().slice(0, limit ?? undefined),
+    )
+  )
     .toSorted((a, b) => a.start.diff(b.start) * (order === "asc" ? 1 : -1))
     .map((prerecording) => ({
       etag: prerecording.etag,
@@ -84,5 +101,7 @@ export async function listEventsPrerecordings({
       type: prerecording.type,
     }));
 
-  return { prerecordings: prerecordings };
+  return {
+    prerecordings: { events: events.events, prerecordings: prerecordings },
+  };
 }

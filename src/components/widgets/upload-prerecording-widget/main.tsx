@@ -2,10 +2,12 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { Center, Title } from "@mantine/core";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 import { useToasts } from "../../../hooks/use-toasts";
+import { useListEventsInstances } from "../../../hooks/wrappers/use-list-events-instances";
 import {
   UploadPrerecordingForm,
   UploadPrerecordingFormData,
@@ -13,12 +15,21 @@ import {
 import { UploadPrerecordingWidgetInput } from "./types";
 
 export function UploadPrerecordingWidget({
+  instances: prefetchedInstances,
   show,
+  ...props
 }: UploadPrerecordingWidgetInput) {
   const router = useRouter();
 
   const { _ } = useLingui();
   const toasts = useToasts();
+
+  const { data: currentInstances, error } = useListEventsInstances(props);
+  const instances = currentInstances ?? prefetchedInstances;
+
+  useEffect(() => {
+    if (error) toasts.warning(_(error));
+  }, [_, error, toasts]);
 
   const handleUploadAfterValidation = useCallback(
     async (instance: string, file: File) => {
@@ -55,5 +66,14 @@ export function UploadPrerecordingWidget({
     [_, handleUploadAfterValidation],
   );
 
-  return <UploadPrerecordingForm onUpload={handleUpload} show={show} />;
+  if (instances.length === 0)
+    return (
+      <Center>
+        <Title>{_(msg({ message: "No event instances." }))}</Title>
+      </Center>
+    );
+
+  return (
+    <UploadPrerecordingForm instances={instances} onUpload={handleUpload} />
+  );
 }

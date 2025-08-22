@@ -20,6 +20,7 @@ import {
 export function PrerecordingItem({
   onDelete,
   prerecording,
+  timezone,
 }: PrerecordingItemInput) {
   const { _ } = useLingui();
   const toasts = useToasts();
@@ -38,21 +39,21 @@ export function PrerecordingItem({
   }, [_, onDelete, prerecording, toasts]);
 
   return (
-    <>
-      <Group gap="xs">
-        <Text fw="bold" size="xs">
-          {formatStartDateText(prerecording)}
-        </Text>
-        <Divider orientation="vertical" size="sm" />
-        <Text fw="bold" size="xs">
-          {formatStartTimeText(prerecording)}
-        </Text>
-        <Divider orientation="vertical" size="sm" />
-        <Text fw="bold" size="xs">
-          {formatSizeText(prerecording, language)}
-        </Text>
-      </Group>
+    <Group gap="sm" w="100%">
+      <Text flex={1} fw="bold" size="xs">
+        {formatStartDateText(prerecording, timezone)}
+      </Text>
+      <Divider orientation="vertical" size="sm" />
+      <Text flex={1} fw="bold" size="xs" ta="center">
+        {formatStartTimeText(prerecording, timezone)}
+      </Text>
+      <Divider orientation="vertical" size="sm" />
+      <Text flex={1} fw="bold" size="xs" ta="center">
+        {formatSizeText(prerecording, language)}
+      </Text>
+      <Divider orientation="vertical" size="sm" />
       <ActionIcon
+        bd="none"
         component="a"
         download={formatFilename(prerecording)}
         href={`/api/prerecordings/${prerecording.event.id}/${prerecording.start}`}
@@ -62,6 +63,7 @@ export function PrerecordingItem({
         <MdDownload size="1em" />
       </ActionIcon>
       <ActionIcon
+        bd="none"
         color="ra-red"
         onClick={handleDelete}
         size="auto"
@@ -69,6 +71,6 @@ export function PrerecordingItem({
       >
         <MdDelete size="1em" />
       </ActionIcon>
-    </>
+    </Group>
   );
 }

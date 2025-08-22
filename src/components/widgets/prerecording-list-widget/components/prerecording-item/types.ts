@@ -2,5 +2,6 @@ import { ListEventsPrerecordingsOutput } from "../../../../../lib/wrappers/list-
 
 export type PrerecordingItemInput = {
   onDelete?: () => void;
-  prerecording: ListEventsPrerecordingsOutput["prerecordings"][number];
+  prerecording: ListEventsPrerecordingsOutput["prerecordings"]["prerecordings"][number];
+  timezone?: string;
 };

@@ -5,7 +5,7 @@ import {
   ListPrerecordingsOutput,
 } from "../../numbat/list-prerecordings";
 
-export type Prerecording = {
+export type ListEventsPrerecordingsPrerecording = {
   etag: HeadPrerecordingOutput["etag"];
   event: ListEventsOutput["events"]["events"][number];
   length: HeadPrerecordingOutput["length"];
@@ -14,14 +14,21 @@ export type Prerecording = {
   type: HeadPrerecordingOutput["type"];
 };
 
+export type ListEventsPrerecordingsPrerecordings = {
+  events: ListEventsOutput["events"]["events"];
+  prerecordings: ListEventsPrerecordingsPrerecording[];
+};
+
 export type ListEventsPrerecordingsInput = {
-  after?: ListPrerecordingsInput["after"];
-  before?: ListPrerecordingsInput["before"];
+  after?: string;
+  before?: string;
   include?: ListEventsInput["include"];
+  limit?: ListPrerecordingsInput["limit"];
   order?: ListPrerecordingsInput["order"];
+  timezone?: string;
   where?: ListEventsInput["where"];
 };
 
 export type ListEventsPrerecordingsOutput = {
-  prerecordings: Prerecording[];
+  prerecordings: ListEventsPrerecordingsPrerecordings;
 };

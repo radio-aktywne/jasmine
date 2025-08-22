@@ -2,7 +2,7 @@ import {
   UseUploadPrerecordingFormValidators,
   UseUploadPrerecordingFormValues,
 } from "../../../../../hooks/forms/use-upload-prerecording-form";
-import { GetShowOutput } from "../../../../../lib/beaver/get-show";
+import { ListEventsInstancesOutput } from "../../../../../lib/wrappers/list-events-instances";
 
 export type UploadPrerecordingFormData = UseUploadPrerecordingFormValues;
 
@@ -14,9 +14,9 @@ export type UploadPrerecordingFormValidators =
   UseUploadPrerecordingFormValidators;
 
 export type UploadPrerecordingFormInput = {
+  instances: ListEventsInstancesOutput["instances"];
   onUpload?: (
     data: UploadPrerecordingFormData,
   ) => Promise<null | undefined | UploadPrerecordingFormErrors>;
-  show: GetShowOutput["show"];
   validate?: UseUploadPrerecordingFormValidators;
 };

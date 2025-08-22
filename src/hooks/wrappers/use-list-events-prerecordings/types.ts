@@ -10,7 +10,9 @@ export type UseListEventsPrerecordingsInput = {
   before?: ListEventsPrerecordingsInput["before"];
   include?: ListEventsPrerecordingsInput["include"];
   interval?: number;
+  limit?: ListEventsPrerecordingsInput["limit"];
   order?: ListEventsPrerecordingsInput["order"];
+  timezone?: ListEventsPrerecordingsInput["timezone"];
   where?: ListEventsPrerecordingsInput["where"];
 };
 

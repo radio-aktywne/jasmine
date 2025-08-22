@@ -18,6 +18,7 @@ export async function listEventsInstances({
       return await listSchedules({
         end: end,
         include: include,
+        limit: null,
         start: start,
         where: where,
       });

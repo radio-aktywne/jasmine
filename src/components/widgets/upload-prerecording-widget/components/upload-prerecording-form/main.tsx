@@ -2,33 +2,24 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, FileInput, Loader, Select, Stack } from "@mantine/core";
+import { Button, FileInput, Select, Stack } from "@mantine/core";
 import { useCallback, useState } from "react";
 
 import {
   useUploadPrerecordingForm,
   UseUploadPrerecordingFormValues,
 } from "../../../../../hooks/forms/use-upload-prerecording-form";
-import { useListEventsInstances } from "../../../../../hooks/wrappers/use-list-events-instances";
-import { datetimeFormat } from "./constants";
 import { UploadPrerecordingFormInput } from "./types";
-import { getEndDatetime, getInstanceLabel, getInstanceValue } from "./utils";
+import { getInstanceLabel, getInstanceValue } from "./utils";
 
 export function UploadPrerecordingForm({
+  instances,
   onUpload,
-  show,
   validate,
 }: UploadPrerecordingFormInput) {
   const [uploading, setUploading] = useState(false);
 
   const { _ } = useLingui();
-
-  const { data: instances, loading: instancesLoading } = useListEventsInstances(
-    {
-      end: getEndDatetime().format(datetimeFormat),
-      where: JSON.stringify({ show: { id: show.id }, type: "prerecorded" }),
-    },
-  );
 
   const { form } = useUploadPrerecordingForm({ validate: validate });
 
@@ -47,9 +38,7 @@ export function UploadPrerecordingForm({
     [formSetErrors, onUpload],
   );
 
-  if (instancesLoading) return <Loader />;
-
-  const instanceSelectData = instances?.map((instance) => ({
+  const instanceSelectData = instances.map((instance) => ({
     label: getInstanceLabel(instance),
     value: getInstanceValue(instance),
   }));
