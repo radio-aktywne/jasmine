@@ -1,8 +1,3 @@
-export type RouteParams = {
-  event: string;
-  start: string;
-};
-
-export type RouteContext = {
-  params: RouteParams;
-};
+export namespace Keys {
+  export type Path = "event" | "start";
+}

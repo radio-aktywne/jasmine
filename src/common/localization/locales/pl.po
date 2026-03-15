@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jasmine\n"
+"Language: pl\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Generator: @lingui/cli\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:80
+#: src/client/core/components/upload-prerecording-widget/main.tsx:68
+#: src/client/core/components/upload-prerecording-widget/main.tsx:100
+#: src/client/test/components/test-widget/main.tsx:52
+msgid "An unexpected error occurred"
+msgstr "Wystąpił nieoczekiwany błąd"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:141
+msgid "Back"
+msgstr "Cofnij"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:25
+msgid "Enter some value"
+msgstr "Wprowadź jakąś wartość"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:46
+msgid "Error"
+msgstr "Błąd"
+
+#: src/app/(root)/(main)/error.tsx:11
+#: src/app/(root)/(prerecordings)/(master)/(detail)/error.tsx:11
+#: src/app/(root)/(prerecordings)/error.tsx:11
+msgid "Error • jasmine"
+msgstr "Błąd • jasmine"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:67
+msgid "File"
+msgstr "Plik"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:41
+msgid "File is required"
+msgstr "Plik jest wymagany"
+
+#: src/client/core/components/list-prerecordings-widget/components/controls/main.tsx:59
+msgid "Filter by date range"
+msgstr "Filtruj według zakresu dat"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:56
+msgid "Info"
+msgstr "Informacja"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:60
+msgid "Instance"
+msgstr "Termin emisji"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:47
+msgid "Instance is required"
+msgstr "Termin emisji jest wymagany"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:64
+msgid "Invalid file"
+msgstr "Nieprawidłowy plik"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:40
+#: src/client/core/components/upload-prerecording-widget/main.tsx:45
+#: src/client/core/components/upload-prerecording-widget/main.tsx:63
+#: src/client/core/components/upload-prerecording-widget/main.tsx:119
+#: src/client/test/components/test-widget/main.tsx:41
+#: src/client/test/components/test-widget/main.tsx:62
+msgid "Invalid input"
+msgstr "Nieprawidłowe dane wejściowe"
+
+#: src/app/(root)/layout.tsx:39
+msgid "jasmine"
+msgstr "jasmine"
+
+#: src/app/(root)/layout.tsx:33
+msgid "jasmine is a Next.js app"
+msgstr "jasmine to aplikacja Next.js"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:122
+msgid "No prerecordings"
+msgstr "Brak nagrań"
+
+#: src/client/core/components/shows-widget/main.tsx:101
+msgid "No shows"
+msgstr "Brak audycji"
+
+#: src/app/(root)/(main)/not-found.tsx:15
+#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.tsx:15
+msgid "Not Found • jasmine"
+msgstr "Nie znaleziono • jasmine"
+
+#: src/app/(root)/(main)/not-found.view.tsx:8
+#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.view.tsx:8
+msgid "Page not found"
+msgstr "Nie znaleziono strony"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:74
+msgid "Prerecording already deleted"
+msgstr "Nagranie jest już usunięte"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:86
+msgid "Prerecording deleted"
+msgstr "Usunięto nagranie"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:92
+msgid "Prerecording uploaded"
+msgstr "Przesłano nagranie"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:115
+msgid "Prerecordings"
+msgstr "Nagrania"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/page.tsx:40
+msgid "Prerecordings • {showTitle} • jasmine"
+msgstr "Nagrania • {showTitle} • jasmine"
+
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:21
+msgid "Retry"
+msgstr "Spróbuj ponownie"
+
+#: src/client/core/components/shows-widget/components/controls/main.tsx:30
+msgid "Search shows"
+msgstr "Szukaj audycji"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
+msgid "Select instance"
+msgstr "Wybierz termin emisji"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
+msgid "Select prerecording file"
+msgstr "Wybierz plik nagrania"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.view.tsx:8
+msgid "Show not found"
+msgstr "Nie znaleziono audycji"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.tsx:15
+msgid "Show not found • jasmine"
+msgstr "Nie znaleziono audycji • jasmine"
+
+#: src/client/core/components/shows-widget/main.tsx:89
+msgid "Shows"
+msgstr "Audycje"
+
+#: src/app/(root)/(prerecordings)/(master)/shows/page.tsx:20
+msgid "Shows • jasmine"
+msgstr "Audycje • jasmine"
+
+#: src/app/(root)/(main)/error.view.tsx:10
+#: src/app/(root)/(prerecordings)/(master)/(detail)/error.view.tsx:10
+#: src/app/(root)/(prerecordings)/error.view.tsx:12
+msgid "Something went wrong"
+msgstr "Coś poszło nie tak"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+msgid "Submit"
+msgstr "Wyślij"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:66
+msgid "Success"
+msgstr "Sukces"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:142
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
+msgid "Upload"
+msgstr "Prześlij"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:125
+msgid "Upload prerecording"
+msgstr "Prześlij nagranie"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/upload/page.tsx:40
+msgid "Upload prerecording • {showTitle} • jasmine"
+msgstr "Prześlij nagranie • {showTitle} • jasmine"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:76
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:27
+msgid "Why did the chicken cross the road? To get to the other side."
+msgstr "Dlaczego kura przeszła przez ulicę? Żeby dostać się na drugą stronę."

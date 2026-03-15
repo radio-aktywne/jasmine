@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jasmine\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Generator: @lingui/cli\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:80
+#: src/client/core/components/upload-prerecording-widget/main.tsx:68
+#: src/client/core/components/upload-prerecording-widget/main.tsx:100
+#: src/client/test/components/test-widget/main.tsx:52
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:141
+msgid "Back"
+msgstr "Back"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:25
+msgid "Enter some value"
+msgstr "Enter some value"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:46
+msgid "Error"
+msgstr "Error"
+
+#: src/app/(root)/(main)/error.tsx:11
+#: src/app/(root)/(prerecordings)/(master)/(detail)/error.tsx:11
+#: src/app/(root)/(prerecordings)/error.tsx:11
+msgid "Error • jasmine"
+msgstr "Error • jasmine"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:67
+msgid "File"
+msgstr "File"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:41
+msgid "File is required"
+msgstr "File is required"
+
+#: src/client/core/components/list-prerecordings-widget/components/controls/main.tsx:59
+msgid "Filter by date range"
+msgstr "Filter by date range"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:56
+msgid "Info"
+msgstr "Info"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:60
+msgid "Instance"
+msgstr "Instance"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:47
+msgid "Instance is required"
+msgstr "Instance is required"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:64
+msgid "Invalid file"
+msgstr "Invalid file"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:40
+#: src/client/core/components/upload-prerecording-widget/main.tsx:45
+#: src/client/core/components/upload-prerecording-widget/main.tsx:63
+#: src/client/core/components/upload-prerecording-widget/main.tsx:119
+#: src/client/test/components/test-widget/main.tsx:41
+#: src/client/test/components/test-widget/main.tsx:62
+msgid "Invalid input"
+msgstr "Invalid input"
+
+#: src/app/(root)/layout.tsx:39
+msgid "jasmine"
+msgstr "jasmine"
+
+#: src/app/(root)/layout.tsx:33
+msgid "jasmine is a Next.js app"
+msgstr "jasmine is a Next.js app"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:122
+msgid "No prerecordings"
+msgstr "No prerecordings"
+
+#: src/client/core/components/shows-widget/main.tsx:101
+msgid "No shows"
+msgstr "No shows"
+
+#: src/app/(root)/(main)/not-found.tsx:15
+#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.tsx:15
+msgid "Not Found • jasmine"
+msgstr "Not Found • jasmine"
+
+#: src/app/(root)/(main)/not-found.view.tsx:8
+#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.view.tsx:8
+msgid "Page not found"
+msgstr "Page not found"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:74
+msgid "Prerecording already deleted"
+msgstr "Prerecording already deleted"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:86
+msgid "Prerecording deleted"
+msgstr "Prerecording deleted"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:92
+msgid "Prerecording uploaded"
+msgstr "Prerecording uploaded"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:115
+msgid "Prerecordings"
+msgstr "Prerecordings"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/page.tsx:40
+msgid "Prerecordings • {showTitle} • jasmine"
+msgstr "Prerecordings • {showTitle} • jasmine"
+
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:21
+msgid "Retry"
+msgstr "Retry"
+
+#: src/client/core/components/shows-widget/components/controls/main.tsx:30
+msgid "Search shows"
+msgstr "Search shows"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
+msgid "Select instance"
+msgstr "Select instance"
+
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
+msgid "Select prerecording file"
+msgstr "Select prerecording file"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.view.tsx:8
+msgid "Show not found"
+msgstr "Show not found"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.tsx:15
+msgid "Show not found • jasmine"
+msgstr "Show not found • jasmine"
+
+#: src/client/core/components/shows-widget/main.tsx:89
+msgid "Shows"
+msgstr "Shows"
+
+#: src/app/(root)/(prerecordings)/(master)/shows/page.tsx:20
+msgid "Shows • jasmine"
+msgstr "Shows • jasmine"
+
+#: src/app/(root)/(main)/error.view.tsx:10
+#: src/app/(root)/(prerecordings)/(master)/(detail)/error.view.tsx:10
+#: src/app/(root)/(prerecordings)/error.view.tsx:12
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+msgid "Submit"
+msgstr "Submit"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:66
+msgid "Success"
+msgstr "Success"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:142
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
+msgid "Upload"
+msgstr "Upload"
+
+#: src/client/core/components/upload-prerecording-widget/main.tsx:125
+msgid "Upload prerecording"
+msgstr "Upload prerecording"
+
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/upload/page.tsx:40
+msgid "Upload prerecording • {showTitle} • jasmine"
+msgstr "Upload prerecording • {showTitle} • jasmine"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:76
+msgid "Warning"
+msgstr "Warning"
+
+#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:27
+msgid "Why did the chicken cross the road? To get to the other side."
+msgstr "Why did the chicken cross the road? To get to the other side."
