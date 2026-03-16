@@ -2,7 +2,7 @@
 
 import type { Dayjs } from "dayjs";
 
-import { msg } from "@lingui/core/macro";
+import { msg, plural } from "@lingui/core/macro";
 import { Button, Stack, Text, Title } from "@mantine/core";
 import { List } from "@radio-aktywne/ui";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -34,9 +34,11 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
 
   const listShowPrerecordingsInput = useMemo(
     () => ({
-      after: range ? range[0].utc().format("YYYY-MM-DDTHH:mm:ss") : undefined,
-      before: range ? range[1].utc().format("YYYY-MM-DDTHH:mm:ss") : undefined,
+      after: range?.[0].utc().format("YYYY-MM-DDTHH:mm:ss"),
+      before: range?.[1].utc().format("YYYY-MM-DDTHH:mm:ss"),
       id: id,
+      limit: range?.[0].isSame(range[1], "day") ? null : 10,
+      order: "desc" as const,
     }),
     [id, range],
   );
@@ -98,7 +100,12 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
     setRange(range);
   }, []);
 
+  const count = listShowPrerecordingsQuery.data?.count;
   const results = listShowPrerecordingsQuery.data?.results;
+  const remaining =
+    count !== undefined && results !== undefined
+      ? count - results.length
+      : undefined;
 
   const deleteHandlers = useDeepCompareMemo(
     () =>
@@ -115,23 +122,36 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
         {localization.localize(msg({ message: "Prerecordings" }))}
       </Title>
       <Controls defaultRange={range} onRangeChange={handleRangeChange} />
-      {results === undefined ? (
+      {count === undefined ||
+      results === undefined ||
+      remaining === undefined ? (
         <LoadingWidget />
-      ) : results.length === 0 ? (
+      ) : count === 0 ? (
         <Text py="sm" size="xs" ta="center">
           {localization.localize(msg({ message: "No prerecordings" }))}
         </Text>
       ) : (
-        <List style={{ overflowY: "auto" }}>
-          {results.map((result, index) => (
-            <PrerecordingItem
-              event={result.event}
-              key={`${result.event.id}-${result.prerecording.start}`}
-              onDelete={deleteHandlers?.[index]}
-              prerecording={result.prerecording}
-            />
-          ))}
-        </List>
+        <>
+          <List style={{ overflowY: "auto" }}>
+            {results.map((result, index) => (
+              <PrerecordingItem
+                event={result.event}
+                key={`${result.event.id}-${result.prerecording.start}`}
+                onDelete={deleteHandlers?.[index]}
+                prerecording={result.prerecording}
+              />
+            ))}
+          </List>
+          {remaining > 0 && (
+            <Text c="dimmed" size="xs" ta="center">
+              {localization.localize(
+                msg({
+                  message: plural(remaining, { other: "...and # more." }),
+                }),
+              )}
+            </Text>
+          )}
+        </>
       )}
       <Button
         component={Link}

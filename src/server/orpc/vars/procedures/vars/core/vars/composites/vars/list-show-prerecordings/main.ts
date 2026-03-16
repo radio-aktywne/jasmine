@@ -15,9 +15,9 @@ export const listShowPrerecordings =
         include: { events: { where: { type: "prerecorded" } } },
       });
 
-      const mappedPrerecordingsListData = await Promise.all(
+      const perEventData = await Promise.all(
         showsGetData.events!.map(async (event) => {
-          const prerecordingsListData = await call(prerecordings.list, {
+          const data = await call(prerecordings.list, {
             after:
               input.after &&
               dayjs
@@ -31,20 +31,28 @@ export const listShowPrerecordings =
                 .tz(event.timezone)
                 .format("YYYY-MM-DDTHH:mm:ss"),
             event: event.id,
-            limit: null,
+            limit: input.limit,
+            order: input.order,
           });
 
-          return prerecordingsListData.prerecordings.map((prerecording) => ({
-            event: event,
-            start: dayjs.tz(prerecording.start, event.timezone),
-          }));
+          return { data: data, event: event };
         }),
       );
 
+      const count = perEventData.reduce((sum, { data }) => sum + data.count, 0);
+
       const results = await Promise.all(
-        mappedPrerecordingsListData
-          .flat()
-          .toSorted((a, b) => a.start.diff(b.start))
+        perEventData
+          .flatMap((item) =>
+            item.data.prerecordings.map((prerecording) => ({
+              event: item.event,
+              start: dayjs.tz(prerecording.start, item.event.timezone),
+            })),
+          )
+          .toSorted(
+            (a, b) => a.start.diff(b.start) * (input.order === "asc" ? 1 : -1),
+          )
+          .slice(0, input.limit ?? undefined)
           .map(async (data) => {
             const start = data.start.format("YYYY-MM-DDTHH:mm:ss");
 
@@ -71,6 +79,6 @@ export const listShowPrerecordings =
           }),
       );
 
-      return { results: results };
+      return { count: count, results: results };
     },
   );

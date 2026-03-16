@@ -13,7 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:80
+#: src/client/core/components/list-prerecordings-widget/main.tsx:148
+msgid "{remaining, plural, other {...and # more.}}"
+msgstr "{remaining, plural, other {...i # więcej.}}"
+
+#: src/client/core/components/list-prerecordings-widget/main.tsx:82
 #: src/client/core/components/upload-prerecording-widget/main.tsx:68
 #: src/client/core/components/upload-prerecording-widget/main.tsx:100
 #: src/client/test/components/test-widget/main.tsx:52
@@ -83,7 +87,7 @@ msgstr "jasmine"
 msgid "jasmine is a Next.js app"
 msgstr "jasmine to aplikacja Next.js"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:122
+#: src/client/core/components/list-prerecordings-widget/main.tsx:131
 msgid "No prerecordings"
 msgstr "Brak nagrań"
 
@@ -101,11 +105,11 @@ msgstr "Nie znaleziono • jasmine"
 msgid "Page not found"
 msgstr "Nie znaleziono strony"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:74
+#: src/client/core/components/list-prerecordings-widget/main.tsx:76
 msgid "Prerecording already deleted"
 msgstr "Nagranie jest już usunięte"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:86
+#: src/client/core/components/list-prerecordings-widget/main.tsx:88
 msgid "Prerecording deleted"
 msgstr "Usunięto nagranie"
 
@@ -113,7 +117,7 @@ msgstr "Usunięto nagranie"
 msgid "Prerecording uploaded"
 msgstr "Przesłano nagranie"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:115
+#: src/client/core/components/list-prerecordings-widget/main.tsx:122
 msgid "Prerecordings"
 msgstr "Nagrania"
 
@@ -167,7 +171,7 @@ msgstr "Wyślij"
 msgid "Success"
 msgstr "Sukces"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:142
+#: src/client/core/components/list-prerecordings-widget/main.tsx:162
 #: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
 msgid "Upload"
 msgstr "Prześlij"
