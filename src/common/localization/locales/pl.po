@@ -60,11 +60,11 @@ msgstr "Informacja"
 
 #: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:60
 msgid "Instance"
-msgstr "Termin emisji"
+msgstr "Termin transmisji"
 
 #: src/client/core/components/upload-prerecording-widget/main.tsx:47
 msgid "Instance is required"
-msgstr "Termin emisji jest wymagany"
+msgstr "Termin transmisji jest wymagany"
 
 #: src/client/core/components/upload-prerecording-widget/main.tsx:64
 msgid "Invalid file"
@@ -135,7 +135,7 @@ msgstr "Szukaj audycji"
 
 #: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
 msgid "Select instance"
-msgstr "Wybierz termin emisji"
+msgstr "Wybierz termin transmisji"
 
 #: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
 msgid "Select prerecording file"
