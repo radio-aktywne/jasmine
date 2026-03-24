@@ -28,6 +28,10 @@ msgstr "Wystąpił nieoczekiwany błąd"
 msgid "Back"
 msgstr "Cofnij"
 
+#: src/app/(root)/layout.tsx:33
+msgid "Broadcast prerecordings app 🛋️"
+msgstr "Broadcast prerecordings app 🛋️"
+
 #: src/client/test/components/test-widget/components/test-form/main.tsx:25
 msgid "Enter some value"
 msgstr "Wprowadź jakąś wartość"
@@ -82,10 +86,6 @@ msgstr "Nieprawidłowe dane wejściowe"
 #: src/app/(root)/layout.tsx:39
 msgid "jasmine"
 msgstr "jasmine"
-
-#: src/app/(root)/layout.tsx:33
-msgid "jasmine is a Next.js app"
-msgstr "jasmine to aplikacja Next.js"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:131
 msgid "No prerecordings"
