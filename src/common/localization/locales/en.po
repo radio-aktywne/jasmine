@@ -28,6 +28,10 @@ msgstr "An unexpected error occurred"
 msgid "Back"
 msgstr "Back"
 
+#: src/app/(root)/layout.tsx:33
+msgid "Broadcast prerecordings app 🛋️"
+msgstr "Broadcast prerecordings app 🛋️"
+
 #: src/client/test/components/test-widget/components/test-form/main.tsx:25
 msgid "Enter some value"
 msgstr "Enter some value"
@@ -82,10 +86,6 @@ msgstr "Invalid input"
 #: src/app/(root)/layout.tsx:39
 msgid "jasmine"
 msgstr "jasmine"
-
-#: src/app/(root)/layout.tsx:33
-msgid "jasmine is a Next.js app"
-msgstr "jasmine is a Next.js app"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:131
 msgid "No prerecordings"
