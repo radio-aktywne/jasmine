@@ -46,7 +46,7 @@ msgstr "Błąd"
 msgid "Error • jasmine"
 msgstr "Błąd • jasmine"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:67
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
 msgid "File"
 msgstr "Plik"
 
@@ -62,7 +62,7 @@ msgstr "Filtruj według zakresu dat"
 msgid "Info"
 msgstr "Informacja"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:60
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
 msgid "Instance"
 msgstr "Termin transmisji"
 
@@ -133,11 +133,11 @@ msgstr "Spróbuj ponownie"
 msgid "Search shows"
 msgstr "Szukaj audycji"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:62
 msgid "Select instance"
 msgstr "Wybierz termin transmisji"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:71
 msgid "Select prerecording file"
 msgstr "Wybierz plik nagrania"
 
@@ -172,7 +172,7 @@ msgid "Success"
 msgstr "Sukces"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:162
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:82
 msgid "Upload"
 msgstr "Prześlij"
 

@@ -9,6 +9,7 @@ import { dayjs } from "../../../../../../common/dates/vars/dayjs";
 import { useForm } from "../../../../../../isomorphic/core/hooks/use-form";
 import { useLocalization } from "../../../../../../isomorphic/localization/hooks/use-localization";
 import { orpcClientSideQueryClient } from "../../../../../orpc/vars/clients";
+import { constants } from "./constants";
 import { Schemas } from "./schemas";
 
 export function UploadPrerecordingForm({
@@ -63,6 +64,7 @@ export function UploadPrerecordingForm({
         {...form.getInputProps("instance")}
       />
       <FileInput
+        accept={constants.file.types.join(",")}
         key={form.key("file")}
         label={localization.localize(msg({ message: "File" }))}
         placeholder={localization.localize(

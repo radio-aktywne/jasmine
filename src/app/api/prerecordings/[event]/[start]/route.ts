@@ -17,13 +17,22 @@ export async function GET(
 
   const pathParameters = await Schemas.Path.parseAsync(await params);
 
-  const { response: prerecordingsEventStartDownloadResponse } =
-    await state.current.apis.numbat.prerecordingsEventStartDownload({
-      path: { event: pathParameters.event, start: pathParameters.start },
-    });
+  const {
+    data: prerecordingsEventStartDownloadData,
+    response: prerecordingsEventStartDownloadResponse,
+  } = await state.current.apis.numbat.prerecordingsEventStartDownload({
+    path: { event: pathParameters.event, start: pathParameters.start },
+  });
 
-  if (prerecordingsEventStartDownloadResponse.status === 404)
-    return new Response(STATUS_CODES[404], { status: 404 });
+  if (prerecordingsEventStartDownloadData === undefined) {
+    if (prerecordingsEventStartDownloadResponse.status === 400)
+      return new Response(STATUS_CODES[400], { status: 400 });
+
+    if (prerecordingsEventStartDownloadResponse.status === 404)
+      return new Response(STATUS_CODES[404], { status: 404 });
+
+    return new Response(STATUS_CODES[500], { status: 500 });
+  }
 
   return new Response(prerecordingsEventStartDownloadResponse.body, {
     headers: {
@@ -52,15 +61,21 @@ export async function PUT(
   if (!request.body || !contentType)
     return new Response(STATUS_CODES[400], { status: 400 });
 
-  const { response: prerecordingsEventStartUploadResponse } =
-    await state.current.apis.numbat.prerecordingsEventStartUpload({
-      body: request.body,
-      headers: { "Content-Type": contentType },
-      path: { event: pathParameters.event, start: pathParameters.start },
-    });
+  const {
+    data: prerecordingsEventStartUploadData,
+    response: prerecordingsEventStartUploadResponse,
+  } = await state.current.apis.numbat.prerecordingsEventStartUpload({
+    body: request.body,
+    headers: { "Content-Type": contentType },
+    path: { event: pathParameters.event, start: pathParameters.start },
+  });
 
-  if (prerecordingsEventStartUploadResponse.status === 404)
-    return new Response(STATUS_CODES[404], { status: 404 });
+  if (prerecordingsEventStartUploadData === undefined) {
+    if (prerecordingsEventStartUploadResponse.status === 400)
+      return new Response(STATUS_CODES[400], { status: 400 });
+
+    return new Response(STATUS_CODES[500], { status: 500 });
+  }
 
   return new Response(null, { status: 204 });
 }
