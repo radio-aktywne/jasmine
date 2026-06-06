@@ -1,8 +1,10 @@
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const delete_ = orpcServerRootBase.core.prerecordings.delete.handler(
-  async ({ errors, input }) => {
+export const delete_ = orpcServerRootBase.core.prerecordings.delete
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { event, start } = input;
 
     const {
@@ -18,5 +20,4 @@ export const delete_ = orpcServerRootBase.core.prerecordings.delete.handler(
 
       throw errors.INTERNAL_SERVER_ERROR();
     }
-  },
-);
+  });

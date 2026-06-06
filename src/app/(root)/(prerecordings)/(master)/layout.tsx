@@ -3,6 +3,7 @@ import { connection } from "next/server";
 import type { LayoutInput } from "../../../types";
 import type { Keys } from "./types";
 
+import { Authenticated } from "../../../../server/access/components/authenticated";
 import { PrerecordingsMasterLayoutView } from "./layout.view";
 
 export default async function PrerecordingsMasterLayout({
@@ -11,6 +12,8 @@ export default async function PrerecordingsMasterLayout({
   await connection();
 
   return (
-    <PrerecordingsMasterLayoutView>{children}</PrerecordingsMasterLayoutView>
+    <Authenticated>
+      <PrerecordingsMasterLayoutView>{children}</PrerecordingsMasterLayoutView>
+    </Authenticated>
   );
 }

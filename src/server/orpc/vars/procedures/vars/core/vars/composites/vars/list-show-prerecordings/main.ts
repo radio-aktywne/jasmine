@@ -4,12 +4,14 @@ import { omit } from "es-toolkit/object";
 import { dayjs } from "../../../../../../../../../../common/dates/vars/dayjs";
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 import { prerecordings } from "../../../prerecordings";
 import { shows } from "../../../shows";
 
 export const listShowPrerecordings =
-  orpcServerRootBase.core.composites.listShowPrerecordings.handler(
-    async ({ input }) => {
+  orpcServerRootBase.core.composites.listShowPrerecordings
+    .use(authenticatedMiddleware)
+    .handler(async ({ input }) => {
       const showsGetData = await call(shows.get, {
         id: input.id,
         include: { events: { where: { type: "prerecorded" } } },
@@ -80,5 +82,4 @@ export const listShowPrerecordings =
       );
 
       return { count: count, results: results };
-    },
-  );
+    });

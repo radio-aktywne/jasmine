@@ -28,7 +28,7 @@ msgstr "Wystąpił nieoczekiwany błąd"
 msgid "Back"
 msgstr "Cofnij"
 
-#: src/app/(root)/layout.tsx:33
+#: src/app/(root)/layout.tsx:36
 msgid "Broadcast prerecordings app 🛋️"
 msgstr "Broadcast prerecordings app 🛋️"
 
@@ -36,13 +36,12 @@ msgstr "Broadcast prerecordings app 🛋️"
 msgid "Enter some value"
 msgstr "Wprowadź jakąś wartość"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:46
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:40
 msgid "Error"
 msgstr "Błąd"
 
-#: src/app/(root)/(main)/error.tsx:11
 #: src/app/(root)/(prerecordings)/(master)/(detail)/error.tsx:11
-#: src/app/(root)/(prerecordings)/error.tsx:11
+#: src/app/(root)/error.tsx:11
 msgid "Error • jasmine"
 msgstr "Błąd • jasmine"
 
@@ -58,7 +57,11 @@ msgstr "Plik jest wymagany"
 msgid "Filter by date range"
 msgstr "Filtruj według zakresu dat"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:56
+#: src/app/(root)/forbidden.tsx:10
+msgid "Forbidden • jasmine"
+msgstr "Brak dostępu • jasmine"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:51
 msgid "Info"
 msgstr "Informacja"
 
@@ -83,9 +86,13 @@ msgstr "Nieprawidłowy plik"
 msgid "Invalid input"
 msgstr "Nieprawidłowe dane wejściowe"
 
-#: src/app/(root)/layout.tsx:39
+#: src/app/(root)/layout.tsx:42
 msgid "jasmine"
 msgstr "jasmine"
+
+#: src/isomorphic/identity/components/identity-widget/main.tsx:21
+msgid "Logout"
+msgstr "Wyloguj się"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:131
 msgid "No prerecordings"
@@ -95,13 +102,12 @@ msgstr "Brak nagrań"
 msgid "No shows"
 msgstr "Brak audycji"
 
-#: src/app/(root)/(main)/not-found.tsx:15
 #: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.tsx:15
+#: src/app/(root)/not-found.tsx:15
 msgid "Not Found • jasmine"
 msgstr "Nie znaleziono • jasmine"
 
-#: src/app/(root)/(main)/not-found.view.tsx:8
-#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.view.tsx:8
+#: src/isomorphic/core/components/generic/not-found-widget/main.tsx:15
 msgid "Page not found"
 msgstr "Nie znaleziono strony"
 
@@ -121,11 +127,11 @@ msgstr "Przesłano nagranie"
 msgid "Prerecordings"
 msgstr "Nagrania"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/page.tsx:40
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/page.tsx:42
 msgid "Prerecordings • {showTitle} • jasmine"
 msgstr "Nagrania • {showTitle} • jasmine"
 
-#: src/isomorphic/core/components/generic/error-widget/main.tsx:21
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:25
 msgid "Retry"
 msgstr "Spróbuj ponownie"
 
@@ -153,13 +159,11 @@ msgstr "Nie znaleziono audycji • jasmine"
 msgid "Shows"
 msgstr "Audycje"
 
-#: src/app/(root)/(prerecordings)/(master)/shows/page.tsx:20
+#: src/app/(root)/(prerecordings)/(master)/shows/page.tsx:21
 msgid "Shows • jasmine"
 msgstr "Audycje • jasmine"
 
-#: src/app/(root)/(main)/error.view.tsx:10
-#: src/app/(root)/(prerecordings)/(master)/(detail)/error.view.tsx:10
-#: src/app/(root)/(prerecordings)/error.view.tsx:12
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:16
 msgid "Something went wrong"
 msgstr "Coś poszło nie tak"
 
@@ -167,7 +171,7 @@ msgstr "Coś poszło nie tak"
 msgid "Submit"
 msgstr "Wyślij"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:66
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:62
 msgid "Success"
 msgstr "Sukces"
 
@@ -180,14 +184,22 @@ msgstr "Prześlij"
 msgid "Upload prerecording"
 msgstr "Prześlij nagranie"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/upload/page.tsx:40
+#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/upload/page.tsx:42
 msgid "Upload prerecording • {showTitle} • jasmine"
 msgstr "Prześlij nagranie • {showTitle} • jasmine"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:76
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:73
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:27
+#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:29
 msgid "Why did the chicken cross the road? To get to the other side."
 msgstr "Dlaczego kura przeszła przez ulicę? Żeby dostać się na drugą stronę."
+
+#: src/isomorphic/access/components/forbidden-widget/main.tsx:16
+msgid "You are not allowed to access this page"
+msgstr "Nie masz dostępu do tej strony"
+
+#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:56
+msgid "You are not authenticated. Reload the page to authenticate again."
+msgstr "Nie jesteś uwierzytelniony. Odśwież stronę, aby ponownie się uwierzytelnić."
