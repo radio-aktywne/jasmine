@@ -3,9 +3,11 @@ import { isJSONValue } from "es-toolkit/predicate";
 
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const list = orpcServerRootBase.core.prerecordings.list.handler(
-  async ({ errors, input }) => {
+export const list = orpcServerRootBase.core.prerecordings.list
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { event, ...query } = input;
 
     const { data: prerecordingsEventListData } =
@@ -20,5 +22,4 @@ export const list = orpcServerRootBase.core.prerecordings.list.handler(
       throw errors.INTERNAL_SERVER_ERROR();
 
     return prerecordingsEventListData;
-  },
-);
+  });
