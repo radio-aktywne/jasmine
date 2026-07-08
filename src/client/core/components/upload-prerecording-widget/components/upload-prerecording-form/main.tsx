@@ -1,3 +1,5 @@
+import type { SetNonNullableDeep } from "type-fest";
+
 import { msg } from "@lingui/core/macro";
 import { Button, FileInput, Select } from "@mantine/core";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -22,18 +24,19 @@ export function UploadPrerecordingForm({
 
   const [now] = useState(dayjs().locale(localization.locale).local());
 
-  const scheduleListInput = useMemo(
+  const instancesListInput = useMemo(
     () => ({
-      end: now.add(1, "month").utc().format("YYYY-MM-DDTHH:mm:ss"),
+      end: now.add(1, "month").utc().format("YYYY-MM-DDTHH:mm:ss[Z]"),
+      include: { event: true },
       limit: null,
-      where: { showId: id, type: "prerecorded" as const },
+      where: { event: { is: { showId: id, type: "prerecorded" as const } } },
     }),
     [id, now],
   );
 
-  const scheduleListQuery = useSuspenseQuery(
-    orpcClientSideQueryClient.core.schedule.list.queryOptions({
-      input: scheduleListInput,
+  const instancesListQuery = useSuspenseQuery(
+    orpcClientSideQueryClient.core.instances.list.queryOptions({
+      input: instancesListInput,
     }),
   );
 
@@ -44,19 +47,22 @@ export function UploadPrerecordingForm({
     schema: Schemas.Values,
   });
 
+  const instancesList = instancesListQuery.data as SetNonNullableDeep<
+    typeof instancesListQuery.data,
+    "instances.0.event"
+  >;
+
   return (
     <form onSubmit={handleFormSubmit} style={{ display: "contents" }}>
       <Select
-        data={scheduleListQuery.data.schedules.flatMap((schedule) =>
-          schedule.instances.map((instance) => ({
-            label: dayjs
-              .tz(instance.start, schedule.event.timezone)
-              .locale(localization.locale)
-              .local()
-              .format("LLL"),
-            value: `${schedule.event.id}/${instance.start}`,
-          })),
-        )}
+        data={instancesList.instances.map((instance) => ({
+          label: dayjs
+            .tz(instance.start, instance.event.timezone)
+            .locale(localization.locale)
+            .local()
+            .format("LLL"),
+          value: `${instance.event.id}/${instance.start}`,
+        }))}
         key={form.key("instance")}
         label={localization.localize(msg({ message: "Instance" }))}
         placeholder={localization.localize(msg({ message: "Select instance" }))}
