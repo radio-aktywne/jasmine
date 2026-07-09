@@ -45,7 +45,7 @@ msgstr "Error"
 msgid "Error • jasmine"
 msgstr "Error • jasmine"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:69
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:75
 msgid "File"
 msgstr "File"
 
@@ -65,7 +65,7 @@ msgstr "Forbidden • jasmine"
 msgid "Info"
 msgstr "Info"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:61
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:67
 msgid "Instance"
 msgstr "Instance"
 
@@ -139,11 +139,11 @@ msgstr "Retry"
 msgid "Search shows"
 msgstr "Search shows"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:62
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:68
 msgid "Select instance"
 msgstr "Select instance"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:71
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:77
 msgid "Select prerecording file"
 msgstr "Select prerecording file"
 
@@ -176,7 +176,7 @@ msgid "Success"
 msgstr "Success"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:162
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:82
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:88
 msgid "Upload"
 msgstr "Upload"
 
