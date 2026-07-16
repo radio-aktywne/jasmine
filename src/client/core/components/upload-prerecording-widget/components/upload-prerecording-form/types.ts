@@ -24,8 +24,9 @@ export type UploadPrerecordingFormOnSubmit =
   UseFormOnSubmit<UploadPrerecordingFormSchema>;
 
 export type UploadPrerecordingFormInput = {
-  id: string;
   initialValues: UploadPrerecordingFormValues;
   onError?: UploadPrerecordingFormOnError;
+  onShowChange?: (value: null | string) => void;
   onSubmit: UploadPrerecordingFormOnSubmit;
+  show?: null | string;
 };

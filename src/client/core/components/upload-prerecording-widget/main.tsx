@@ -9,6 +9,7 @@ import { useCallback, useMemo, useState } from "react";
 
 import type { UploadPrerecordingWidgetInput } from "./types";
 
+import { createUrl } from "../../../../common/generic/lib/create-url";
 import { useLocalization } from "../../../../isomorphic/localization/hooks/use-localization";
 import { useNotifications } from "../../../../isomorphic/notifications/hooks/use-notifications";
 import { orpcClientSideQueryClient } from "../../../orpc/vars/clients";
@@ -18,7 +19,7 @@ import {
 } from "./components/upload-prerecording-form";
 
 export function UploadPrerecordingWidget({
-  id,
+  show,
 }: UploadPrerecordingWidgetInput) {
   const [uploading, setUploading] = useState(false);
 
@@ -29,6 +30,18 @@ export function UploadPrerecordingWidget({
   const { notifications } = useNotifications();
 
   const initialValues = useMemo(() => ({}), []);
+
+  const handleShowChange = useCallback(
+    (value: null | string) => {
+      router.push(
+        createUrl({
+          path: "/prerecordings/upload",
+          query: value ? { show: value } : undefined,
+        }).url,
+      );
+    },
+    [router],
+  );
 
   const handleUpload = useCallback(
     async ({ values }: UploadPrerecordingFormSubmitInput) => {
@@ -92,7 +105,12 @@ export function UploadPrerecordingWidget({
           message: msg({ message: "Prerecording uploaded" }),
         });
 
-        router.push(`/shows/${id}/prerecordings`);
+        router.push(
+          createUrl({
+            path: "/prerecordings",
+            query: show ? { show: show } : undefined,
+          }).url,
+        );
 
         return { values: { file: file, instance: instance } };
       } catch (error) {
@@ -106,11 +124,11 @@ export function UploadPrerecordingWidget({
       }
     },
     [
-      id,
       notifications.error,
       notifications.success,
       queryClient,
       router,
+      show,
       uploading,
     ],
   );
@@ -125,16 +143,22 @@ export function UploadPrerecordingWidget({
         {localization.localize(msg({ message: "Upload prerecording" }))}
       </Title>
       <UploadPrerecordingForm
-        id={id}
         initialValues={initialValues}
         onError={handleError}
+        onShowChange={handleShowChange}
         onSubmit={handleUpload}
+        show={show}
       />
       <Button
         color="gray"
         component={Link}
         disabled={uploading}
-        href={`/shows/${id}/prerecordings`}
+        href={
+          createUrl({
+            path: "/prerecordings",
+            query: show ? { show: show } : undefined,
+          }).url
+        }
         style={{ flexShrink: 0 }}
         variant="light"
       >

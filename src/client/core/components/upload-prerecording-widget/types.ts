@@ -1,3 +1,3 @@
 export type UploadPrerecordingWidgetInput = {
-  id: string;
+  show?: null | string;
 };
