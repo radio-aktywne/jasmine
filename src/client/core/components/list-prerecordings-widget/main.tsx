@@ -3,44 +3,45 @@
 import type { Dayjs } from "dayjs";
 
 import { msg, plural } from "@lingui/core/macro";
-import { Button, Stack, Text, Title } from "@mantine/core";
+import { Button, Group, Stack, Text, Title } from "@mantine/core";
 import { List } from "@radio-aktywne/ui";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 import { useDeepCompareMemo } from "use-deep-compare";
 
 import type { ListPrerecordingsWidgetInput } from "./types";
 
 import { LoadingWidget } from "../../../../common/core/components/generic/loading-widget";
-import { dayjs } from "../../../../common/dates/vars/dayjs";
+import { createUrl } from "../../../../common/generic/lib/create-url";
 import { isOrpcDefinedError } from "../../../../common/orpc/lib/is-orpc-defined-error";
 import { useLocalization } from "../../../../isomorphic/localization/hooks/use-localization";
 import { useNotifications } from "../../../../isomorphic/notifications/hooks/use-notifications";
 import { orpcClientSideQueryClient } from "../../../orpc/vars/clients";
-import { Controls } from "./components/controls";
 import { PrerecordingItem } from "./components/prerecording-item";
+import { RangeFilter } from "./components/range-filter";
+import { ShowFilter } from "./components/show-filter";
 
-export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
+export function ListPrerecordingsWidget({
+  show,
+}: ListPrerecordingsWidgetInput) {
+  const [range, setRange] = useState<[Dayjs, Dayjs] | null>(null);
+
+  const router = useRouter();
+
   const { localization } = useLocalization();
-
-  const [now] = useState(dayjs().locale(localization.locale).local());
-  const [range, setRange] = useState<[Dayjs, Dayjs] | null>([
-    now.subtract(1, "month").startOf("day"),
-    now.add(1, "month").endOf("day"),
-  ]);
-
   const { notifications } = useNotifications();
 
   const listShowPrerecordingsInput = useMemo(
     () => ({
       after: range?.[0].utc().format("YYYY-MM-DDTHH:mm:ss"),
       before: range?.[1].utc().format("YYYY-MM-DDTHH:mm:ss"),
-      id: id,
       limit: range?.[0].isSame(range[1], "day") ? null : 10,
       order: "desc" as const,
+      show: show,
     }),
-    [id, range],
+    [range, show],
   );
 
   const listShowPrerecordingsQuery = useQuery(
@@ -62,6 +63,22 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
       },
     }),
   );
+
+  const handleShowChange = useCallback(
+    (value: null | string) => {
+      router.push(
+        createUrl({
+          path: "/prerecordings",
+          query: value ? { show: value } : undefined,
+        }).url,
+      );
+    },
+    [router],
+  );
+
+  const handleRangeChange = useCallback((range: [Dayjs, Dayjs] | null) => {
+    setRange(range);
+  }, []);
 
   const handleDelete = useCallback(
     async (event: string, start: string) => {
@@ -96,10 +113,6 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
     ],
   );
 
-  const handleRangeChange = useCallback((range: [Dayjs, Dayjs] | null) => {
-    setRange(range);
-  }, []);
-
   const count = listShowPrerecordingsQuery.data?.count;
   const results = listShowPrerecordingsQuery.data?.results;
   const remaining =
@@ -121,7 +134,10 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
       <Title ta="center">
         {localization.localize(msg({ message: "Prerecordings" }))}
       </Title>
-      <Controls defaultRange={range} onRangeChange={handleRangeChange} />
+      <Group>
+        <ShowFilter onShowChange={handleShowChange} show={show} />
+        <RangeFilter defaultRange={range} onRangeChange={handleRangeChange} />
+      </Group>
       {count === undefined ||
       results === undefined ||
       remaining === undefined ? (
@@ -155,7 +171,12 @@ export function ListPrerecordingsWidget({ id }: ListPrerecordingsWidgetInput) {
       )}
       <Button
         component={Link}
-        href={`/shows/${id}/prerecordings/upload`}
+        href={
+          createUrl({
+            path: "/prerecordings/upload",
+            query: show ? { show: show } : undefined,
+          }).url
+        }
         mt="auto"
         style={{ flexShrink: 0 }}
       >

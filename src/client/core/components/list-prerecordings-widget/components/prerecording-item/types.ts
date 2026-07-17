@@ -1,14 +1,10 @@
-import type { SetNonNullableDeep } from "type-fest";
-
 import type { ORPCOutputs } from "../../../../../../common/orpc/types/inferred";
 
 type ListShowPrerecordingsOutput =
   ORPCOutputs["core"]["composites"]["listShowPrerecordings"];
 
-type PrerecordingItemEvent = SetNonNullableDeep<
-  ListShowPrerecordingsOutput["results"][number]["event"],
-  "show"
->;
+type PrerecordingItemEvent =
+  ListShowPrerecordingsOutput["results"][number]["event"];
 
 type PrerecordingItemPrerecording =
   ListShowPrerecordingsOutput["results"][number]["prerecording"];

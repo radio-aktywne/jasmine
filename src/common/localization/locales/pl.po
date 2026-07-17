@@ -13,18 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:148
+#: src/client/core/components/list-prerecordings-widget/main.tsx:164
 msgid "{remaining, plural, other {...and # more.}}"
 msgstr "{remaining, plural, other {...i # więcej.}}"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:82
-#: src/client/core/components/upload-prerecording-widget/main.tsx:68
-#: src/client/core/components/upload-prerecording-widget/main.tsx:100
+#: src/client/core/components/list-prerecordings-widget/main.tsx:99
+#: src/client/core/components/upload-prerecording-widget/main.tsx:81
+#: src/client/core/components/upload-prerecording-widget/main.tsx:118
 #: src/client/test/components/test-widget/main.tsx:52
 msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:141
+#: src/client/core/components/upload-prerecording-widget/main.tsx:165
 msgid "Back"
 msgstr "Cofnij"
 
@@ -40,20 +40,19 @@ msgstr "Wprowadź jakąś wartość"
 msgid "Error"
 msgstr "Błąd"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/error.tsx:11
 #: src/app/(root)/error.tsx:11
 msgid "Error • jasmine"
 msgstr "Błąd • jasmine"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:75
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:88
 msgid "File"
 msgstr "Plik"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:41
+#: src/client/core/components/upload-prerecording-widget/main.tsx:54
 msgid "File is required"
 msgstr "Plik jest wymagany"
 
-#: src/client/core/components/list-prerecordings-widget/components/controls/main.tsx:59
+#: src/client/core/components/list-prerecordings-widget/components/range-filter/main.tsx:60
 msgid "Filter by date range"
 msgstr "Filtruj według zakresu dat"
 
@@ -65,22 +64,22 @@ msgstr "Brak dostępu • jasmine"
 msgid "Info"
 msgstr "Informacja"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:67
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
 msgid "Instance"
 msgstr "Termin transmisji"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:47
+#: src/client/core/components/upload-prerecording-widget/main.tsx:60
 msgid "Instance is required"
 msgstr "Termin transmisji jest wymagany"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:64
+#: src/client/core/components/upload-prerecording-widget/main.tsx:77
 msgid "Invalid file"
 msgstr "Nieprawidłowy plik"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:40
-#: src/client/core/components/upload-prerecording-widget/main.tsx:45
-#: src/client/core/components/upload-prerecording-widget/main.tsx:63
-#: src/client/core/components/upload-prerecording-widget/main.tsx:119
+#: src/client/core/components/upload-prerecording-widget/main.tsx:53
+#: src/client/core/components/upload-prerecording-widget/main.tsx:58
+#: src/client/core/components/upload-prerecording-widget/main.tsx:76
+#: src/client/core/components/upload-prerecording-widget/main.tsx:137
 #: src/client/test/components/test-widget/main.tsx:41
 #: src/client/test/components/test-widget/main.tsx:62
 msgid "Invalid input"
@@ -94,15 +93,15 @@ msgstr "jasmine"
 msgid "Logout"
 msgstr "Wyloguj się"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:131
+#: src/client/core/components/list-prerecordings-widget/main.tsx:147
 msgid "No prerecordings"
 msgstr "Brak nagrań"
 
-#: src/client/core/components/shows-widget/main.tsx:101
+#: src/client/core/components/list-prerecordings-widget/components/show-filter/main.tsx:45
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/components/show-filter/main.tsx:42
 msgid "No shows"
 msgstr "Brak audycji"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/not-found.tsx:15
 #: src/app/(root)/not-found.tsx:15
 msgid "Not Found • jasmine"
 msgstr "Nie znaleziono • jasmine"
@@ -111,57 +110,50 @@ msgstr "Nie znaleziono • jasmine"
 msgid "Page not found"
 msgstr "Nie znaleziono strony"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:76
+#: src/client/core/components/list-prerecordings-widget/main.tsx:93
 msgid "Prerecording already deleted"
 msgstr "Nagranie jest już usunięte"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:88
+#: src/client/core/components/list-prerecordings-widget/main.tsx:105
 msgid "Prerecording deleted"
 msgstr "Usunięto nagranie"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:92
+#: src/client/core/components/upload-prerecording-widget/main.tsx:105
 msgid "Prerecording uploaded"
 msgstr "Przesłano nagranie"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:122
+#: src/client/core/components/list-prerecordings-widget/main.tsx:135
 msgid "Prerecordings"
 msgstr "Nagrania"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/page.tsx:42
+#: src/app/(root)/(main)/prerecordings/page.tsx:45
 msgid "Prerecordings • {showTitle} • jasmine"
 msgstr "Nagrania • {showTitle} • jasmine"
+
+#: src/app/(root)/(main)/prerecordings/page.tsx:24
+msgid "Prerecordings • jasmine"
+msgstr "Nagrania • jasmine"
 
 #: src/isomorphic/core/components/generic/error-widget/main.tsx:25
 msgid "Retry"
 msgstr "Spróbuj ponownie"
 
-#: src/client/core/components/shows-widget/components/controls/main.tsx:30
-msgid "Search shows"
-msgstr "Szukaj audycji"
-
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:68
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:81
 msgid "Select instance"
 msgstr "Wybierz termin transmisji"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:77
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:90
 msgid "Select prerecording file"
 msgstr "Wybierz plik nagrania"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.view.tsx:8
-msgid "Show not found"
-msgstr "Nie znaleziono audycji"
+#: src/client/core/components/list-prerecordings-widget/components/show-filter/main.tsx:47
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/components/show-filter/main.tsx:44
+msgid "Select show"
+msgstr "Wybierz audycję"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/not-found.tsx:15
-msgid "Show not found • jasmine"
-msgstr "Nie znaleziono audycji • jasmine"
-
-#: src/client/core/components/shows-widget/main.tsx:89
-msgid "Shows"
-msgstr "Audycje"
-
-#: src/app/(root)/(prerecordings)/(master)/shows/page.tsx:21
-msgid "Shows • jasmine"
-msgstr "Audycje • jasmine"
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/components/show-filter/main.tsx:41
+msgid "Show"
+msgstr "Audycja"
 
 #: src/isomorphic/core/components/generic/error-widget/main.tsx:16
 msgid "Something went wrong"
@@ -175,18 +167,22 @@ msgstr "Wyślij"
 msgid "Success"
 msgstr "Sukces"
 
-#: src/client/core/components/list-prerecordings-widget/main.tsx:162
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:88
+#: src/client/core/components/list-prerecordings-widget/main.tsx:183
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:101
 msgid "Upload"
 msgstr "Prześlij"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:125
+#: src/client/core/components/upload-prerecording-widget/main.tsx:143
 msgid "Upload prerecording"
 msgstr "Prześlij nagranie"
 
-#: src/app/(root)/(prerecordings)/(master)/(detail)/shows/[id]/prerecordings/upload/page.tsx:42
+#: src/app/(root)/(main)/prerecordings/upload/page.tsx:46
 msgid "Upload prerecording • {showTitle} • jasmine"
 msgstr "Prześlij nagranie • {showTitle} • jasmine"
+
+#: src/app/(root)/(main)/prerecordings/upload/page.tsx:25
+msgid "Upload prerecording • jasmine"
+msgstr "Prześlij nagranie • jasmine"
 
 #: src/isomorphic/notifications/hooks/use-notifications/main.ts:73
 msgid "Warning"
