@@ -55,6 +55,7 @@ export function PrerecordingItem({
       <Divider orientation="vertical" size="sm" />
       <ActionIcon
         bd="none"
+        color="ra-blue"
         component="a"
         download={`${slugify(event.show ? event.show.title : event.id)}_${dayjs.tz(prerecording.start, event.timezone).utc().format("YYYYMMDDTHHmmss[Z]")}`}
         href={`/api/prerecordings/${event.id}/${prerecording.start}`}
