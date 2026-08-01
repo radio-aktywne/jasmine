@@ -5,7 +5,7 @@ import { Button, Stack, Title } from "@mantine/core";
 import { matchQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 import type { UploadPrerecordingWidgetInput } from "./types";
 
@@ -28,8 +28,6 @@ export function UploadPrerecordingWidget({
 
   const { localization } = useLocalization();
   const { notifications } = useNotifications();
-
-  const initialValues = useMemo(() => ({}), []);
 
   const handleShowChange = useCallback(
     (value: null | string) => {
@@ -138,12 +136,11 @@ export function UploadPrerecordingWidget({
   }, [notifications.error]);
 
   return (
-    <Stack h="100%" w="100%">
+    <Stack gap="xl" h="100%" w="100%">
       <Title ta="center">
         {localization.localize(msg({ message: "Upload prerecording" }))}
       </Title>
       <UploadPrerecordingForm
-        initialValues={initialValues}
         onError={handleError}
         onShowChange={handleShowChange}
         onSubmit={handleUpload}
