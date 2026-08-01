@@ -3,6 +3,7 @@ import type { SetNonNullableDeep } from "type-fest";
 import { msg } from "@lingui/core/macro";
 import { Button, FileInput, Select } from "@mantine/core";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { isString } from "es-toolkit/predicate";
 import { useCallback, useMemo, useState } from "react";
 
 import type { UploadPrerecordingFormInput } from "./types";
@@ -46,9 +47,10 @@ export function UploadPrerecordingForm({
 
   const { form, handleFormSubmit, submitting } = useForm({
     initialValues: initialValues,
+    inputSchema: Schemas.Input,
     onError: onError,
     onSubmit: onSubmit,
-    schema: Schemas.Values,
+    outputSchema: Schemas.Output,
   });
 
   const instances = instancesListQuery.data.instances as SetNonNullableDeep<
@@ -76,20 +78,28 @@ export function UploadPrerecordingForm({
             .format("LLL"),
           value: `${instance.event.id}/${instance.start}`,
         }))}
+        errorProps={{
+          title: [form.getInputProps("instance").error].find(isString),
+        }}
         key={form.key("instance")}
         label={localization.localize(msg({ message: "Instance" }))}
         placeholder={localization.localize(msg({ message: "Select instance" }))}
         required={true}
+        styles={{ error: { position: "absolute" } }}
         {...form.getInputProps("instance")}
       />
       <FileInput
         accept={constants.file.types.join(",")}
+        errorProps={{
+          title: [form.getInputProps("file").error].find(isString),
+        }}
         key={form.key("file")}
         label={localization.localize(msg({ message: "File" }))}
         placeholder={localization.localize(
           msg({ message: "Select prerecording file" }),
         )}
         required={true}
+        styles={{ error: { position: "absolute" } }}
         {...form.getInputProps("file")}
       />
       <Button

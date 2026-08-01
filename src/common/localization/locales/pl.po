@@ -18,21 +18,21 @@ msgid "{remaining, plural, other {...and # more.}}"
 msgstr "{remaining, plural, other {...i # więcej.}}"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:99
-#: src/client/core/components/upload-prerecording-widget/main.tsx:81
-#: src/client/core/components/upload-prerecording-widget/main.tsx:118
-#: src/client/test/components/test-widget/main.tsx:52
+#: src/client/core/components/upload-prerecording-widget/main.tsx:79
+#: src/client/core/components/upload-prerecording-widget/main.tsx:116
+#: src/client/test/components/test-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:165
+#: src/client/core/components/upload-prerecording-widget/main.tsx:162
 msgid "Back"
 msgstr "Cofnij"
 
-#: src/app/(root)/layout.tsx:36
+#: src/app/(root)/layout.tsx:37
 msgid "Broadcast prerecordings app 🛋️"
 msgstr "Broadcast prerecordings app 🛋️"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:25
+#: src/client/test/components/test-widget/components/test-form/main.tsx:30
 msgid "Enter some value"
 msgstr "Wprowadź jakąś wartość"
 
@@ -44,11 +44,11 @@ msgstr "Błąd"
 msgid "Error • jasmine"
 msgstr "Błąd • jasmine"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:88
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:97
 msgid "File"
 msgstr "Plik"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:54
+#: src/client/core/components/upload-prerecording-widget/main.tsx:52
 msgid "File is required"
 msgstr "Plik jest wymagany"
 
@@ -64,28 +64,28 @@ msgstr "Brak dostępu • jasmine"
 msgid "Info"
 msgstr "Informacja"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:80
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:85
 msgid "Instance"
 msgstr "Termin transmisji"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:60
+#: src/client/core/components/upload-prerecording-widget/main.tsx:58
 msgid "Instance is required"
 msgstr "Termin transmisji jest wymagany"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:77
+#: src/client/core/components/upload-prerecording-widget/main.tsx:75
 msgid "Invalid file"
 msgstr "Nieprawidłowy plik"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:53
-#: src/client/core/components/upload-prerecording-widget/main.tsx:58
-#: src/client/core/components/upload-prerecording-widget/main.tsx:76
-#: src/client/core/components/upload-prerecording-widget/main.tsx:137
-#: src/client/test/components/test-widget/main.tsx:41
-#: src/client/test/components/test-widget/main.tsx:62
+#: src/client/core/components/upload-prerecording-widget/main.tsx:51
+#: src/client/core/components/upload-prerecording-widget/main.tsx:56
+#: src/client/core/components/upload-prerecording-widget/main.tsx:74
+#: src/client/core/components/upload-prerecording-widget/main.tsx:135
+#: src/client/test/components/test-widget/main.tsx:39
+#: src/client/test/components/test-widget/main.tsx:60
 msgid "Invalid input"
 msgstr "Nieprawidłowe dane wejściowe"
 
-#: src/app/(root)/layout.tsx:42
+#: src/app/(root)/layout.tsx:43
 msgid "jasmine"
 msgstr "jasmine"
 
@@ -118,7 +118,7 @@ msgstr "Nagranie jest już usunięte"
 msgid "Prerecording deleted"
 msgstr "Usunięto nagranie"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:105
+#: src/client/core/components/upload-prerecording-widget/main.tsx:103
 msgid "Prerecording uploaded"
 msgstr "Przesłano nagranie"
 
@@ -138,11 +138,11 @@ msgstr "Nagrania • jasmine"
 msgid "Retry"
 msgstr "Spróbuj ponownie"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:81
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:86
 msgid "Select instance"
 msgstr "Wybierz termin transmisji"
 
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:90
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:99
 msgid "Select prerecording file"
 msgstr "Wybierz plik nagrania"
 
@@ -159,7 +159,7 @@ msgstr "Audycja"
 msgid "Something went wrong"
 msgstr "Coś poszło nie tak"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+#: src/client/test/components/test-widget/components/test-form/main.tsx:36
 msgid "Submit"
 msgstr "Wyślij"
 
@@ -168,11 +168,11 @@ msgid "Success"
 msgstr "Sukces"
 
 #: src/client/core/components/list-prerecordings-widget/main.tsx:183
-#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:101
+#: src/client/core/components/upload-prerecording-widget/components/upload-prerecording-form/main.tsx:111
 msgid "Upload"
 msgstr "Prześlij"
 
-#: src/client/core/components/upload-prerecording-widget/main.tsx:143
+#: src/client/core/components/upload-prerecording-widget/main.tsx:141
 msgid "Upload prerecording"
 msgstr "Prześlij nagranie"
 
