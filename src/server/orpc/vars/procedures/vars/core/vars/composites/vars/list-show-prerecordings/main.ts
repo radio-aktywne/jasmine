@@ -63,7 +63,8 @@ export const listShowPrerecordings =
                 { path: { event: data.event.id, start: start } },
               );
 
-            const headers = prerecordingsEventStartHeaddownloadResponse.headers;
+            const headers =
+              prerecordingsEventStartHeaddownloadResponse?.headers;
 
             return {
               event: {
@@ -73,11 +74,11 @@ export const listShowPrerecordings =
                   : null,
               },
               prerecording: {
-                etag: headers.get("ETag")!,
-                length: headers.get("Content-Length")!,
-                modified: headers.get("Last-Modified")!,
+                etag: headers!.get("ETag")!,
+                length: headers!.get("Content-Length")!,
+                modified: headers!.get("Last-Modified")!,
                 start: start,
-                type: headers.get("Content-Type")!,
+                type: headers!.get("Content-Type")!,
               },
             };
           }),

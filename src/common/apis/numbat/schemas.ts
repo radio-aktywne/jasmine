@@ -2,36 +2,79 @@
 
 import * as z from "zod";
 
-export const UploadRequestTypeSchema = z.string();
+export const DeleteRequestEventSchema = z.uuid();
 
 /**
  * Datetime without timezone.
  */
-export const UploadRequestStartSchema = z.iso
+export const DeleteRequestStartSchema = z.iso
   .datetime({ offset: true, local: true })
   .register(z.globalRegistry, {
     description: "Datetime without timezone.",
   });
 
-export const UploadRequestEventSchema = z.uuid();
+export const DownloadRequestEventSchema = z.uuid();
 
 /**
- * Result
- *
- * Result of the test.
+ * Datetime without timezone.
  */
-export const TestResponseResultSchema = z
-  .object({
-    success: z.boolean().register(z.globalRegistry, {
-      description: "Indicates if the test was successful.",
-    }),
-    message: z.string().register(z.globalRegistry, {
-      description: "Message returned from the test.",
-    }),
-  })
+export const DownloadRequestStartSchema = z.iso
+  .datetime({ offset: true, local: true })
   .register(z.globalRegistry, {
-    description: "Result of the test.",
+    description: "Datetime without timezone.",
   });
+
+/**
+ * EventType
+ *
+ * Event types.
+ */
+export const EventTypeSchema = z.enum(["test"]).register(z.globalRegistry, {
+  description: "Event types.",
+});
+
+export const HeadDownloadRequestEventSchema = z.uuid();
+
+/**
+ * Datetime without timezone.
+ */
+export const HeadDownloadRequestStartSchema = z.iso
+  .datetime({ offset: true, local: true })
+  .register(z.globalRegistry, {
+    description: "Datetime without timezone.",
+  });
+
+/**
+ * ListOrder
+ *
+ * Order to list prerecordings.
+ */
+export const ListOrderSchema = z
+  .enum(["asc", "desc"])
+  .register(z.globalRegistry, {
+    description: "Order to list prerecordings.",
+  });
+
+export const ListRequestEventSchema = z.uuid();
+
+export const ListRequestLimitSchema = z.int().nullable();
+
+export const ListRequestOffsetSchema = z.int().nullable();
+
+export const ListRequestOrderSchema = ListOrderSchema.nullable();
+
+/**
+ * Datetime without timezone.
+ */
+export const NaiveDatetimeSchema = z.iso
+  .datetime({ offset: true, local: true })
+  .register(z.globalRegistry, {
+    description: "Datetime without timezone.",
+  });
+
+export const ListRequestAfterSchema = NaiveDatetimeSchema.nullable();
+
+export const ListRequestBeforeSchema = NaiveDatetimeSchema.nullable();
 
 /**
  * Parameters
@@ -44,30 +87,6 @@ export const ParametersSchema = z
   })
   .register(z.globalRegistry, {
     description: "Parameters for testing.",
-  });
-
-export const TestRequestParametersSchema = ParametersSchema.nullable();
-
-/**
- * EventType
- *
- * Event types.
- */
-export const EventTypeSchema = z.enum(["test"]).register(z.globalRegistry, {
-  description: "Event types.",
-});
-
-export const SubscribeRequestTypesSchema = z
-  .union([z.string(), z.array(EventTypeSchema)])
-  .nullable();
-
-/**
- * Datetime without timezone.
- */
-export const NaiveDatetimeSchema = z.iso
-  .datetime({ offset: true, local: true })
-  .register(z.globalRegistry, {
-    description: "Datetime without timezone.",
   });
 
 /**
@@ -106,79 +125,48 @@ export const ListResponseResultsSchema = z
     description: "List of prerecordings.",
   });
 
+export const SubscribeRequestTypesSchema = z
+  .union([z.string(), z.array(EventTypeSchema)])
+  .nullable();
+
+export const TestRequestParametersSchema = ParametersSchema.nullable();
+
 /**
- * ListOrder
+ * Result
  *
- * Order to list prerecordings.
+ * Result of the test.
  */
-export const ListOrderSchema = z
-  .enum(["asc", "desc"])
+export const TestResponseResultSchema = z
+  .object({
+    success: z.boolean().register(z.globalRegistry, {
+      description: "Indicates if the test was successful.",
+    }),
+    message: z.string().register(z.globalRegistry, {
+      description: "Message returned from the test.",
+    }),
+  })
   .register(z.globalRegistry, {
-    description: "Order to list prerecordings.",
+    description: "Result of the test.",
   });
 
-export const ListRequestOrderSchema = ListOrderSchema.nullable();
-
-export const ListRequestOffsetSchema = z.int().nullable();
-
-export const ListRequestLimitSchema = z.int().nullable();
-
-export const ListRequestEventSchema = z.uuid();
-
-export const ListRequestBeforeSchema = NaiveDatetimeSchema.nullable();
-
-export const ListRequestAfterSchema = NaiveDatetimeSchema.nullable();
+export const UploadRequestEventSchema = z.uuid();
 
 /**
  * Datetime without timezone.
  */
-export const HeadDownloadRequestStartSchema = z.iso
+export const UploadRequestStartSchema = z.iso
   .datetime({ offset: true, local: true })
   .register(z.globalRegistry, {
     description: "Datetime without timezone.",
   });
 
-export const HeadDownloadRequestEventSchema = z.uuid();
-
-/**
- * Datetime without timezone.
- */
-export const DownloadRequestStartSchema = z.iso
-  .datetime({ offset: true, local: true })
-  .register(z.globalRegistry, {
-    description: "Datetime without timezone.",
-  });
-
-export const DownloadRequestEventSchema = z.uuid();
-
-/**
- * Datetime without timezone.
- */
-export const DeleteRequestStartSchema = z.iso
-  .datetime({ offset: true, local: true })
-  .register(z.globalRegistry, {
-    description: "Datetime without timezone.",
-  });
-
-export const DeleteRequestEventSchema = z.uuid();
-
-export const PingPingRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.never().optional(),
-  query: z.never().optional(),
-});
+export const UploadRequestTypeSchema = z.string();
 
 /**
  * Request fulfilled, nothing follows
  */
 export const PingPingResponseSchema = z.void().register(z.globalRegistry, {
   description: "Request fulfilled, nothing follows",
-});
-
-export const PingHeadpingRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.never().optional(),
-  query: z.never().optional(),
 });
 
 /**
@@ -188,13 +176,9 @@ export const PingHeadpingResponseSchema = z.void().register(z.globalRegistry, {
   description: "Request fulfilled, nothing follows",
 });
 
-export const PrerecordingsEventStartDeleteRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.object({
-    event: DeleteRequestEventSchema,
-    start: DeleteRequestStartSchema,
-  }),
-  query: z.never().optional(),
+export const ZPrerecordingsEventStartDeletePath = z.object({
+  event: DeleteRequestEventSchema,
+  start: DeleteRequestStartSchema,
 });
 
 /**
@@ -206,13 +190,9 @@ export const PrerecordingsEventStartDeleteResponseSchema = z
     description: "Request fulfilled, nothing follows",
   });
 
-export const PrerecordingsEventStartDownloadRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.object({
-    event: DownloadRequestEventSchema,
-    start: DownloadRequestStartSchema,
-  }),
-  query: z.never().optional(),
+export const ZPrerecordingsEventStartDownloadPath = z.object({
+  event: DownloadRequestEventSchema,
+  start: DownloadRequestStartSchema,
 });
 
 /**
@@ -224,25 +204,20 @@ export const PrerecordingsEventStartDownloadResponseSchema = z
     description: "Stream Response",
   });
 
-export const PrerecordingsEventStartHeaddownloadRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.object({
-    event: HeadDownloadRequestEventSchema,
-    start: HeadDownloadRequestStartSchema,
-  }),
-  query: z.never().optional(),
+export const ZPrerecordingsEventStartHeaddownloadPath = z.object({
+  event: HeadDownloadRequestEventSchema,
+  start: HeadDownloadRequestStartSchema,
 });
 
-export const PrerecordingsEventStartUploadRequestSchema = z.object({
-  body: z.unknown(),
-  path: z.object({
-    event: UploadRequestEventSchema,
-    start: UploadRequestStartSchema,
-  }),
-  query: z.never().optional(),
-  headers: z.object({
-    "content-type": z.union([UploadRequestTypeSchema, z.string()]),
-  }),
+export const ZPrerecordingsEventStartUploadBody = z.unknown();
+
+export const ZPrerecordingsEventStartUploadHeaders = z.object({
+  "content-type": z.union([UploadRequestTypeSchema, z.string()]),
+});
+
+export const ZPrerecordingsEventStartUploadPath = z.object({
+  event: UploadRequestEventSchema,
+  start: UploadRequestStartSchema,
 });
 
 /**
@@ -254,20 +229,16 @@ export const PrerecordingsEventStartUploadResponseSchema = z
     description: "Request fulfilled, nothing follows",
   });
 
-export const PrerecordingsEventListRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.object({
-    event: ListRequestEventSchema,
-  }),
-  query: z
-    .object({
-      after: z.union([ListRequestAfterSchema, z.string()]).nullish(),
-      before: z.union([ListRequestBeforeSchema, z.string()]).nullish(),
-      limit: z.union([ListRequestLimitSchema, z.string()]).nullish(),
-      offset: z.union([ListRequestOffsetSchema, z.string()]).nullish(),
-      order: z.union([ListRequestOrderSchema, z.string()]).nullish(),
-    })
-    .optional(),
+export const ZPrerecordingsEventListPath = z.object({
+  event: ListRequestEventSchema,
+});
+
+export const ZPrerecordingsEventListQuery = z.object({
+  after: z.union([ListRequestAfterSchema, z.string()]).nullish(),
+  before: z.union([ListRequestBeforeSchema, z.string()]).nullish(),
+  limit: z.union([ListRequestLimitSchema, z.string()]).nullish(),
+  offset: z.union([ListRequestOffsetSchema, z.string()]).nullish(),
+  order: z.union([ListRequestOrderSchema, z.string()]).nullish(),
 });
 
 /**
@@ -275,14 +246,8 @@ export const PrerecordingsEventListRequestSchema = z.object({
  */
 export const PrerecordingsEventListResponseSchema = ListResponseResultsSchema;
 
-export const SseSubscribeRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.never().optional(),
-  query: z
-    .object({
-      types: z.union([SubscribeRequestTypesSchema, z.string()]).nullish(),
-    })
-    .optional(),
+export const ZSseSubscribeQuery = z.object({
+  types: z.union([SubscribeRequestTypesSchema, z.string()]).nullish(),
 });
 
 /**
@@ -294,17 +259,66 @@ export const SseSubscribeResponseSchema = z
     description: "Request fulfilled, stream of Server-Sent Events follows",
   });
 
-export const TestTestRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.never().optional(),
-  query: z
-    .object({
-      parameters: z.union([TestRequestParametersSchema, z.string()]).nullish(),
-    })
-    .optional(),
+export const ZTestTestQuery = z.object({
+  parameters: z.union([TestRequestParametersSchema, z.string()]).nullish(),
 });
 
 /**
  * Request fulfilled, document follows
  */
 export const TestTestResponseSchema = TestResponseResultSchema;
+
+export const PingPingRequestSchema = z.object({
+  body: z.never().optional(),
+  path: z.never().optional(),
+  query: z.never().optional(),
+});
+
+export const PingHeadpingRequestSchema = z.object({
+  body: z.never().optional(),
+  path: z.never().optional(),
+  query: z.never().optional(),
+});
+
+export const PrerecordingsEventStartDeleteRequestSchema = z.object({
+  body: z.never().optional(),
+  path: ZPrerecordingsEventStartDeletePath,
+  query: z.never().optional(),
+});
+
+export const PrerecordingsEventStartDownloadRequestSchema = z.object({
+  body: z.never().optional(),
+  path: ZPrerecordingsEventStartDownloadPath,
+  query: z.never().optional(),
+});
+
+export const PrerecordingsEventStartHeaddownloadRequestSchema = z.object({
+  body: z.never().optional(),
+  path: ZPrerecordingsEventStartHeaddownloadPath,
+  query: z.never().optional(),
+});
+
+export const PrerecordingsEventStartUploadRequestSchema = z.object({
+  body: ZPrerecordingsEventStartUploadBody,
+  headers: ZPrerecordingsEventStartUploadHeaders,
+  path: ZPrerecordingsEventStartUploadPath,
+  query: z.never().optional(),
+});
+
+export const PrerecordingsEventListRequestSchema = z.object({
+  body: z.never().optional(),
+  path: ZPrerecordingsEventListPath,
+  query: ZPrerecordingsEventListQuery.optional(),
+});
+
+export const SseSubscribeRequestSchema = z.object({
+  body: z.never().optional(),
+  path: z.never().optional(),
+  query: ZSseSubscribeQuery.optional(),
+});
+
+export const TestTestRequestSchema = z.object({
+  body: z.never().optional(),
+  path: z.never().optional(),
+  query: ZTestTestQuery.optional(),
+});

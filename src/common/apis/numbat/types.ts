@@ -4,52 +4,19 @@ export type ClientOptions = {
   baseUrl: `${string}://${string}` | (string & {});
 };
 
-export type UploadRequestType = string;
+export type DeleteRequestEvent = string;
 
 /**
  * Datetime without timezone.
  */
-export type UploadRequestStart = string;
+export type DeleteRequestStart = string;
 
-export type UploadRequestEvent = string;
-
-/**
- * Result
- *
- * Result of the test.
- */
-export type TestResponseResult = {
-  /**
-   * Success
-   *
-   * Indicates if the test was successful.
-   */
-  success: boolean;
-  /**
-   * Message
-   *
-   * Message returned from the test.
-   */
-  message: string;
-};
-
-export type TestRequestParameters = Parameters | null;
+export type DownloadRequestEvent = string;
 
 /**
- * Parameters
- *
- * Parameters for testing.
+ * Datetime without timezone.
  */
-export type Parameters = {
-  /**
-   * Message
-   *
-   * Optional message to include in the test.
-   */
-  message?: string | null;
-};
-
-export type SubscribeRequestTypes = string | Array<EventType> | null;
+export type DownloadRequestStart = string;
 
 /**
  * EventType
@@ -58,25 +25,31 @@ export type SubscribeRequestTypes = string | Array<EventType> | null;
  */
 export type EventType = "test";
 
-/**
- * Prerecording
- *
- * Prerecording data.
- */
-export type Prerecording = {
-  /**
-   * Event
-   *
-   * Identifier of the event.
-   */
-  event: string;
-  start: NaiveDatetime;
-};
+export type HeadDownloadRequestEvent = string;
 
 /**
  * Datetime without timezone.
  */
-export type NaiveDatetime = string;
+export type HeadDownloadRequestStart = string;
+
+/**
+ * ListOrder
+ *
+ * Order to list prerecordings.
+ */
+export type ListOrder = "asc" | "desc";
+
+export type ListRequestAfter = NaiveDatetime | null;
+
+export type ListRequestBefore = NaiveDatetime | null;
+
+export type ListRequestEvent = string;
+
+export type ListRequestLimit = number | null;
+
+export type ListRequestOffset = number | null;
+
+export type ListRequestOrder = ListOrder | null;
 
 /**
  * PrerecordingList
@@ -110,45 +83,72 @@ export type ListResponseResults = {
   prerecordings: Array<Prerecording>;
 };
 
-export type ListRequestOrder = ListOrder | null;
+/**
+ * Datetime without timezone.
+ */
+export type NaiveDatetime = string;
 
 /**
- * ListOrder
+ * Parameters
  *
- * Order to list prerecordings.
+ * Parameters for testing.
  */
-export type ListOrder = "asc" | "desc";
+export type Parameters = {
+  /**
+   * Message
+   *
+   * Optional message to include in the test.
+   */
+  message?: string | null;
+};
 
-export type ListRequestOffset = number | null;
+/**
+ * Prerecording
+ *
+ * Prerecording data.
+ */
+export type Prerecording = {
+  /**
+   * Event
+   *
+   * Identifier of the event.
+   */
+  event: string;
+  start: NaiveDatetime;
+};
 
-export type ListRequestLimit = number | null;
+export type SubscribeRequestTypes = string | Array<EventType> | null;
 
-export type ListRequestEvent = string;
+export type TestRequestParameters = Parameters | null;
 
-export type ListRequestBefore = NaiveDatetime | null;
+/**
+ * Result
+ *
+ * Result of the test.
+ */
+export type TestResponseResult = {
+  /**
+   * Success
+   *
+   * Indicates if the test was successful.
+   */
+  success: boolean;
+  /**
+   * Message
+   *
+   * Message returned from the test.
+   */
+  message: string;
+};
 
-export type ListRequestAfter = NaiveDatetime | null;
+export type UploadRequestEvent = string;
 
 /**
  * Datetime without timezone.
  */
-export type HeadDownloadRequestStart = string;
+export type UploadRequestStart = string;
 
-export type HeadDownloadRequestEvent = string;
-
-/**
- * Datetime without timezone.
- */
-export type DownloadRequestStart = string;
-
-export type DownloadRequestEvent = string;
-
-/**
- * Datetime without timezone.
- */
-export type DeleteRequestStart = string;
-
-export type DeleteRequestEvent = string;
+export type UploadRequestType = string;
 
 export type PingPingRequest = {
   body?: never;

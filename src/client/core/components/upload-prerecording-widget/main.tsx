@@ -157,7 +157,7 @@ export function UploadPrerecordingWidget({
           }).url
         }
         style={{ flexShrink: 0 }}
-        variant="light"
+        variant="default"
       >
         {localization.localize(msg({ message: "Back" }))}
       </Button>
