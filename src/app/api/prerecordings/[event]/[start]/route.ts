@@ -31,24 +31,24 @@ export async function GET(
   });
 
   if (prerecordingsEventStartDownloadData === undefined) {
-    if (prerecordingsEventStartDownloadResponse.status === 400)
+    if (prerecordingsEventStartDownloadResponse?.status === 400)
       return new Response(STATUS_CODES[400], { status: 400 });
 
-    if (prerecordingsEventStartDownloadResponse.status === 404)
+    if (prerecordingsEventStartDownloadResponse?.status === 404)
       return new Response(STATUS_CODES[404], { status: 404 });
 
     return new Response(STATUS_CODES[500], { status: 500 });
   }
 
-  return new Response(prerecordingsEventStartDownloadResponse.body, {
+  return new Response(prerecordingsEventStartDownloadResponse?.body, {
     headers: {
       "Content-Length":
-        prerecordingsEventStartDownloadResponse.headers.get("Content-Length")!,
+        prerecordingsEventStartDownloadResponse!.headers.get("Content-Length")!,
       "Content-Type":
-        prerecordingsEventStartDownloadResponse.headers.get("Content-Type")!,
-      ETag: prerecordingsEventStartDownloadResponse.headers.get("ETag")!,
+        prerecordingsEventStartDownloadResponse!.headers.get("Content-Type")!,
+      ETag: prerecordingsEventStartDownloadResponse!.headers.get("ETag")!,
       "Last-Modified":
-        prerecordingsEventStartDownloadResponse.headers.get("Last-Modified")!,
+        prerecordingsEventStartDownloadResponse!.headers.get("Last-Modified")!,
     },
     status: 200,
   });
@@ -81,7 +81,7 @@ export async function PUT(
   });
 
   if (prerecordingsEventStartUploadData === undefined) {
-    if (prerecordingsEventStartUploadResponse.status === 400)
+    if (prerecordingsEventStartUploadResponse?.status === 400)
       return new Response(STATUS_CODES[400], { status: 400 });
 
     return new Response(STATUS_CODES[500], { status: 500 });

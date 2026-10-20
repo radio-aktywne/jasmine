@@ -15,7 +15,7 @@ export const delete_ = orpcServerRootBase.core.prerecordings.delete
     });
 
     if (prerecordingsEventStartDeleteData === undefined) {
-      if (prerecordingsEventStartDeleteResponse.status === 404)
+      if (prerecordingsEventStartDeleteResponse?.status === 404)
         throw errors.NOT_FOUND();
 
       throw errors.INTERNAL_SERVER_ERROR();
