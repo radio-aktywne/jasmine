@@ -17,12 +17,20 @@ msgstr ""
 msgid "{remaining, plural, other {...and # more.}}"
 msgstr "{remaining, plural, other {...and # more.}}"
 
+#: src/isomorphic/identity/components/identity-widget/main.tsx:59
+msgid "Account"
+msgstr "Account"
+
 #: src/client/core/components/list-prerecordings-widget/main.tsx:99
 #: src/client/core/components/upload-prerecording-widget/main.tsx:79
 #: src/client/core/components/upload-prerecording-widget/main.tsx:116
 #: src/client/test/components/test-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
+
+#: src/isomorphic/identity/components/identity-widget/main.tsx:54
+msgid "Apps"
+msgstr "Apps"
 
 #: src/client/core/components/upload-prerecording-widget/main.tsx:162
 msgid "Back"
@@ -89,7 +97,7 @@ msgstr "Invalid input"
 msgid "jasmine"
 msgstr "jasmine"
 
-#: src/isomorphic/identity/components/identity-widget/main.tsx:24
+#: src/isomorphic/identity/components/identity-widget/main.tsx:65
 msgid "Logout"
 msgstr "Logout"
 

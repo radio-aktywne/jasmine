@@ -64,3 +64,27 @@ You can configure the app at runtime using various environment variables:
 - `JASMINE__SERVER__PORT` -
   port to run the server on
   (default: `10620`)
+- `JASMINE__URLS__ORCHID__HOST` -
+  host of the public URL of the orchid app
+  (default: `localhost`)
+- `JASMINE__URLS__ORCHID__PATH` -
+  path of the public URL of the orchid app
+  (default: ``)
+- `JASMINE__URLS__ORCHID__PORT` -
+  port of the public URL of the orchid app
+  (default: `20120`)
+- `JASMINE__URLS__ORCHID__SCHEME` -
+  scheme of the public URL of the orchid app
+  (default: `http`)
+- `JASMINE__URLS__SUNFLOWER__HOST` -
+  host of the public URL of the sunflower app
+  (default: `localhost`)
+- `JASMINE__URLS__SUNFLOWER__PATH` -
+  path of the public URL of the sunflower app
+  (default: ``)
+- `JASMINE__URLS__SUNFLOWER__PORT` -
+  port of the public URL of the sunflower app
+  (default: `30000`)
+- `JASMINE__URLS__SUNFLOWER__SCHEME` -
+  scheme of the public URL of the sunflower app
+  (default: `http`)
