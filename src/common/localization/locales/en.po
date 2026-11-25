@@ -89,7 +89,7 @@ msgstr "Invalid input"
 msgid "jasmine"
 msgstr "jasmine"
 
-#: src/isomorphic/identity/components/identity-widget/main.tsx:21
+#: src/isomorphic/identity/components/identity-widget/main.tsx:24
 msgid "Logout"
 msgstr "Logout"
 
@@ -196,6 +196,6 @@ msgstr "Why did the chicken cross the road? To get to the other side."
 msgid "You are not allowed to access this page"
 msgstr "You are not allowed to access this page"
 
-#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:56
+#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:36
 msgid "You are not authenticated. Reload the page to authenticate again."
 msgstr "You are not authenticated. Reload the page to authenticate again."
