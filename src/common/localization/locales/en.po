@@ -17,6 +17,14 @@ msgstr ""
 msgid "{remaining, plural, other {...and # more.}}"
 msgstr "{remaining, plural, other {...and # more.}}"
 
+#: src/common/routing/constants.ts:5
+msgid "/"
+msgstr "/"
+
+#: src/common/routing/constants.ts:6
+msgid "/upload"
+msgstr "/upload"
+
 #: src/isomorphic/identity/components/identity-widget/main.tsx:59
 msgid "Account"
 msgstr "Account"
@@ -24,7 +32,7 @@ msgstr "Account"
 #: src/client/core/components/list-prerecordings-widget/main.tsx:99
 #: src/client/core/components/upload-prerecording-widget/main.tsx:79
 #: src/client/core/components/upload-prerecording-widget/main.tsx:116
-#: src/client/test/components/test-widget/main.tsx:50
+#: src/client/example/components/example-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
@@ -36,11 +44,11 @@ msgstr "Apps"
 msgid "Back"
 msgstr "Back"
 
-#: src/app/(root)/layout.tsx:37
+#: src/app/(root)/layout.tsx:39
 msgid "Broadcast prerecordings app 🛋️"
 msgstr "Broadcast prerecordings app 🛋️"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+#: src/client/example/components/example-widget/components/example-form/main.tsx:34
 msgid "Enter some value"
 msgstr "Enter some value"
 
@@ -88,12 +96,12 @@ msgstr "Invalid file"
 #: src/client/core/components/upload-prerecording-widget/main.tsx:56
 #: src/client/core/components/upload-prerecording-widget/main.tsx:74
 #: src/client/core/components/upload-prerecording-widget/main.tsx:135
-#: src/client/test/components/test-widget/main.tsx:39
-#: src/client/test/components/test-widget/main.tsx:60
+#: src/client/example/components/example-widget/main.tsx:39
+#: src/client/example/components/example-widget/main.tsx:60
 msgid "Invalid input"
 msgstr "Invalid input"
 
-#: src/app/(root)/layout.tsx:43
+#: src/app/(root)/layout.tsx:45
 msgid "jasmine"
 msgstr "jasmine"
 
@@ -134,11 +142,11 @@ msgstr "Prerecording uploaded"
 msgid "Prerecordings"
 msgstr "Prerecordings"
 
-#: src/app/(root)/(main)/prerecordings/page.tsx:45
+#: src/app/(root)/(main)/(home)/page.tsx:46
 msgid "Prerecordings • {showTitle} • jasmine"
 msgstr "Prerecordings • {showTitle} • jasmine"
 
-#: src/app/(root)/(main)/prerecordings/page.tsx:24
+#: src/app/(root)/(main)/(home)/page.tsx:25
 msgid "Prerecordings • jasmine"
 msgstr "Prerecordings • jasmine"
 
@@ -167,7 +175,7 @@ msgstr "Show"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:36
+#: src/client/example/components/example-widget/components/example-form/main.tsx:40
 msgid "Submit"
 msgstr "Submit"
 
@@ -184,11 +192,11 @@ msgstr "Upload"
 msgid "Upload prerecording"
 msgstr "Upload prerecording"
 
-#: src/app/(root)/(main)/prerecordings/upload/page.tsx:46
+#: src/app/(root)/(main)/upload/page.tsx:47
 msgid "Upload prerecording • {showTitle} • jasmine"
 msgstr "Upload prerecording • {showTitle} • jasmine"
 
-#: src/app/(root)/(main)/prerecordings/upload/page.tsx:25
+#: src/app/(root)/(main)/upload/page.tsx:26
 msgid "Upload prerecording • jasmine"
 msgstr "Upload prerecording • jasmine"
 
@@ -196,7 +204,7 @@ msgstr "Upload prerecording • jasmine"
 msgid "Warning"
 msgstr "Warning"
 
-#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:29
+#: src/server/orpc/vars/procedures/vars/example/vars/validate/main.ts:29
 msgid "Why did the chicken cross the road? To get to the other side."
 msgstr "Why did the chicken cross the road? To get to the other side."
 
